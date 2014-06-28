@@ -11,6 +11,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import org.json.JSONObject;
+
 @Entity
 @Table(name = "t_marketing_research")
 public class MarketingResearch extends BaseEntity implements Serializable {
@@ -103,42 +105,112 @@ public class MarketingResearch extends BaseEntity implements Serializable {
   }
 
   public String getQ1() {
+    try {
+      if (q1 != null && !("").equals(q1)) {
+        return new JSONObject(q1).toString();
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
     return q1;
   }
 
   public String getQ10() {
+    try {
+      if (q10 != null && !("").equals(q10)) {
+        return new JSONObject(q10).toString();
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
     return q10;
   }
 
   public String getQ2() {
+    try {
+      if (q2 != null && !("").equals(q2)) {
+        return new JSONObject(q2).toString();
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
     return q2;
   }
 
   public String getQ3() {
+    try {
+      if (q3 != null && !("").equals(q3)) {
+        return new JSONObject(q3).toString();
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
     return q3;
   }
 
   public String getQ4() {
+    try {
+      if (q4 != null && !("").equals(q4)) {
+        return new JSONObject(q4).toString();
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
     return q4;
   }
 
   public String getQ5() {
+    try {
+      if (q5 != null && !("").equals(q5)) {
+        return new JSONObject(q5).toString();
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
     return q5;
   }
 
   public String getQ6() {
+    try {
+      if (q6 != null && !("").equals(q6)) {
+        return new JSONObject(q6).toString();
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
     return q6;
   }
 
   public String getQ7() {
+    try {
+      if (q7 != null && !("").equals(q7)) {
+        return new JSONObject(q7).toString();
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
     return q7;
   }
 
   public String getQ8() {
+    try {
+      if (q8 != null && !("").equals(q8)) {
+        return new JSONObject(q8).toString();
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
     return q8;
   }
 
   public String getQ9() {
+    try {
+      if (q9 != null && !("").equals(q9)) {
+        return new JSONObject(q9).toString();
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
     return q9;
   }
 
