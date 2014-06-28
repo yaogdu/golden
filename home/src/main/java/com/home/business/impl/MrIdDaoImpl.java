@@ -64,7 +64,22 @@ public class MrIdDaoImpl extends BaseEntityDao<MrID> implements MrIdDao {
     query.setParameter("uid", uid);
     MrID mrid;
     try {
-      mrid = (MrID) query.getSingleResult();
+      Object[] objs = (Object[]) query.getSingleResult();
+      mrid = new MrID();
+      int i = 0;
+      mrid.setUid(uid);
+      mrid.setA1(objs[i++].toString());
+      mrid.setA10(objs[i++].toString());
+      mrid.setA2(objs[i++].toString());
+      mrid.setA3(objs[i++].toString());
+      mrid.setA4(objs[i++].toString());
+      mrid.setA5(objs[i++].toString());
+      mrid.setA6(objs[i++].toString());
+      mrid.setA7(objs[i++].toString());
+      mrid.setA8(objs[i++].toString());
+      mrid.setA9(objs[i++].toString());
+      mrid.setMr(tablename);
+      mrid.setStatus(Integer.parseInt(objs[i++].toString()));
     } catch (Exception e) {
       mrid = null;
     }
