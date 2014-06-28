@@ -1,0 +1,74 @@
+/*用于左侧栏的css start*/
+.left-sidebar {
+	width: 200px;
+	float: left;
+	text-align: left;
+	border: 1px solid #CCCCCC;
+	border-right: none;
+	background-color: grep;
+	min-height: 600px;
+}
+
+.left-sidebar ul {
+	font-size: 14px;
+	line-height: 30px;
+	font-weight: bold;
+}
+
+.left-sidebar ul li {
+	height: 50px;
+	padding: 9px 0px;
+	border-bottom: 1px solid #CCCCCC;
+	cursor:pointer;
+}
+
+.left-sidebar ul li a {
+	display: block;
+	color: black;
+	text-decoration: none;
+	padding: 0 15px;
+}
+
+#paper_mg_menu li:hover a {
+	background: #C7CED7;
+	border: none;
+}
+
+#paper_mg_menu li.active a {
+	background: #408CC1;
+	border: none;
+	color: #FFFFFF;
+}
+
+/*用于左侧栏的css end*/
+
+/*用于中间内容的css start*/
+.content-detail {
+	width: 800px;
+	float: right;
+	text-align: left;
+	border: 1px solid #CCCCCC;
+	background-color:#F7F5FA;
+	min-height: 600px;
+}
+
+/** 模块标题栏*/
+.paper-content-bar{
+	background-color:#F7F7F7;
+	height:40px;
+	font-size:18px;
+	font-weight:bold;
+	line-height:40px;
+	padding:0 10px;
+	border-bottom:1px solid #E6E6E6;
+}
+
+
+/** 标题栏前装饰 */
+.paper-content-bar>span{
+	width:3px;
+	height:40px;
+	float:left;
+	background-color:#70B4E0;
+	margin:0 10px 0 -10px;
+}

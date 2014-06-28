@@ -1,0 +1,89 @@
+<div id="attr">
+    <form id="form_quesiton_attr" class="form-horizontal">
+        <input id="qid" type="hidden" />
+        <div id="base_attr">
+            <div class="control-group">
+                <label class="control-label" for="diffculty">难度</label>
+
+                <div class="controls">
+                    <select id="diffculty" name="diffculty" class="span4">
+                        <option value="-1">请选择</option>
+                    </select>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="level">掌握层级</label>
+
+                <div class="controls">
+                    <select id="level" name="level" class="span4">
+                        <option value="-1">请选择</option>
+                    </select>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="score">分值</label>
+
+                <div class="controls">
+                    <input id="score" name="score" class="span2"/>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">精品题</label>
+
+                <div class="controls">
+                    <label class="radio inline">
+                        <input type="radio" name="good" value="1"/> 是
+                    </label>
+                    <label class="radio inline">
+                        <input type="radio" name="good" value="0"/> 否
+                    </label>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">音频
+                </label>
+
+                <div class="controls">
+                    <input id="audio_upload" type="file" name="files[]" multiple>
+
+                    <div id="audio_progress" class="progress">
+                        <div class="bar" style="width: 0%;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">视频</label>
+
+                <div class="controls">
+                    <input id="video_upload" type="file" name="files[]" multiple>
+
+                    <div id="video_progress" class="progress">
+                        <div class="bar" style="width: 0%;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="zhuti">主题</label>
+                <input id="zhuti" name="zhuti" class="hide"/>
+
+                <div class="controls">
+                    <span><a href="javascript:Evaluation.toggleZhutiModal();">添加 >></a> </span>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="zhuanti">专题</label>
+                <input id="zhuanti" name="zhuanti" class="hide"/>
+
+                <div class="controls">
+                    <span><a href="javascript:Evaluation.toggleZhuantiModal();">添加 >></a> </span>
+                </div>
+            </div>
+        </div>
+        <div id="extra_attr"></div>
+        <div class="control-group">
+            <div class="controls">
+                <button type="submit" class="btn">保存</button>
+            </div>
+        </div>
+    </form>
+</div>

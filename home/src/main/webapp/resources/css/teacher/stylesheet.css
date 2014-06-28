@@ -1,0 +1,107 @@
+@charset "utf-8";
+/* CSS Document 智慧网*/
+
+
+/* 智慧网与星空网不一样的宽度 及 其他特殊情况 */
+.mainWrap .mainBoxCon .mainIndex .mainCon.mainCon01{ width:745px; margin:0;}
+.treewrap.treewrap01 .treeRoot .treeLi .treeUl.treeUl02{ width:461px;}
+.windowCon.windowCon01 .windowBoxTp{border-bottom:1px dashed #f0f0f0;}
+.windowCon.windowCon01 .windowBoxTp .infoLbl{ font-size:14px; padding:0 0 15px 0;}
+.windowCon.windowCon01 .formCon{ margin:0;}
+.windowWrap .windowBox .windowT .windowMain .windowCon.windowCon01 .formCon .formList label{ min-width:inherit; margin:0;}
+.windowCon.windowCon01 .formCon .formList .info .infoBox{ margin:0 0 10px 0; clear:both}
+.windowCon.windowCon01 .infoHint{ color:#E60012; margin:0;}
+.nataDetail .nataSortList .sortListBox .BtnWrap.show{ display:block;}
+.mainTabWrap .infodata{ float:right; color:#808080;}
+.mainTabWrap .infodata em{ font-weight:bold;}
+.list .listTable tbody tr td .starIco em{ margin:0 10px 0 0;}
+.formCon .formList .info span.infoLabel{ margin:2px 0 0 0;}
+
+.main01{ margin:18px 0 0 0;}
+.formCon.formCon02 .formList label{ margin-top:0;}
+.main .mainIndex .infoList dl dd .infoBox{ float:left;}
+.main .mainIndex .infoList dl dd .infoBox .infoCkb{ margin:2px 0 0 0;}
+.infoList dl dd .BtnGray23 a.btnSave { float: left; height: 23px; padding: 0 5px 0 0;}
+.infoList dl dd .BtnGray23 a .swIco02 { background:url(../img/ico/ico_upload.png) no-repeat -20px 7px; float: right; height:22px; width:16px;}
+.infoList dl dd .BtnGray23 a .swIco02:hover{ background-position:-20px -15px;}
+.infoList dl dd .clear{ color:#1476c8; float:left; line-height:22px; cursor:pointer;}
+.infoList dl.selected{ background-color:#f4f4f4;}
+.hintBubble{ border:1px solid #efc657; border-radius:5px; background-color:#fffce1; padding:10px; position:absolute; left:90px; }
+.hintBubble .hintIco{ display:block; width:9px; height:6px; background:url(../img/ico/ico_upload.png) no-repeat -144px -94px; position:absolute; top:-6px; left:10px;}
+.hintBubble p{ color:#efc657}
+.hintBubble a{ color:#1476c8; margin:10px 0 0 0; display:block}
+.infoList dl dd .BtnGray23{ margin:0;}
+
+.windowWrap .windowBox.windowBox01{ }
+.windowWrap .windowBox .windowT .windowMain .windowCon .formCon .formList .info p.infoLabel{ margin:0;}
+.windowWrap .windowBox .windowT .windowMain .windowCon .mainCon .mainTitle{ padding:0;}
+.windowWrap .windowBox .windowT .windowMain .windowCon .mainCon .formCon .formList .info .infoBox{ margin:0 20px 0 0;}
+.windowWrap .windowBox .windowCon .windowBoxRt{ margin:0 0 0 40px;}
+.formCon .formBox{ border:1px solid #dfdfdf;}
+
+.list.list01 .listTable tbody tr td .state{ color:#ff1800}
+.windowWrap .windowBox .windowT .windowMain .windowCon .infoTxt b{ height:auto; line-height:normal;}
+.dateIco{ width:14px; height:13px; background:url(../img/ico/ico_upload.png) no-repeat -62px -103px; display:inline-block; margin:5px 10px 0; float:left}
+
+.formCon.formCon03 .formList{ margin:0 0 10px 0;}
+.formCon.formCon03 .formList .info .windowBoxTp{ border:none;}
+.formCon.formCon03 .formList .info .windowBoxRt{ margin:0 0 0 26px; }
+.formCon.formCon03 .formList .info .windowBoxLf{ margin:3px 0 0 0;}
+.formCon.formCon03 .formList .info .inputText{ width:88px;}
+.windowWrap .windowBox .windowMain .windowCon.windowCon01 .formCon.formCon03 .formList .labelTp3{margin:3px 0 0 0;}
+.formCon .formList .info .current .inputText{ color:#000;}
+.windowWrap .windowBox .windowMain .windowCon.windowCon01 .formCon.formCon03 .formList .info .trigger .selectText{ color:#a8a8a8;}
+.windowWrap .windowBox .windowMain .windowCon.windowCon01 .formCon.formCon03 .formList .info .current .trigger .selectText{ color:#000;}
+
+.mainConWrap .mainCon .mainTabWrap{ padding:0; border:none; float:left}
+.mainConWrap .mainCon .conNataWrap .nataHead.nataHead01{ line-height:normal; padding:0 0 5px 0;}
+.sidebar .sdbTltle.sdbTltle01 li a{ width:100%}
+.conNataWrap .conNata .nataSelect .nataList{ padding:5px 10px;}
+
+.container .mainWrap .mainIndex .mainCon .mainPart .conInfo .infoTt .infoCkb{ margin:10px 0 0 0;}
+.container .mainWrap .mainIndex .mainCon .mainPart .conInfo .infoTt .infoLabel{ margin:0 0 0 5px; color:#505050; font-weight:normal;}
+.container .mainWrap .mainIndex .mainCon .mainPart .conInfo .infoCon .listSort{color:#505050;}
+.container .mainWrap .mainIndex .mainCon .mainPart .conInfo .infoCon .listSort em{ background:url(../img/ico/ico_upload.png) no-repeat -41px 0; display:inline-block; width:12px; height:14px; vertical-align:-4px;}
+.conList .conListBox .topicInfo .tpcNumber .infoCkb{ margin:20px 0 0 14px;}
+.conList .conListBox .topicInfo .tpcTitle .tpcBox { overflow:hidden; min-width:680px;}
+.conList .conListBox .topicInfo .tpcTitle .tpcDate{ float:right; color:#808080;}
+
+.treewrap.treewrap01 .treeRoot .treeLi .tree1Node.tree1Node02 .tree1Info .tree1Aarrow,
+.treewrap.treewrap01 .treeRoot .treeLi .tree1Node.tree1Node02 .tree1Info .tree1Active{ background-image:none;}
+.treewrap.treewrap01 .treeRoot .treeLi .tree1Node.tree1Node02 .tree1Info .inputText{ float:none; margin:0 0 0 10px;}
+.treewrap.treewrap01 .treeRoot .treeLi .tree1Node.tree1Node02 .tree1Info .BtnWrap{ display:inline-block; float:none;vertical-align:-7px;}
+.treewrap.treewrap01 .treeRoot .treeLi .tree1Node.tree1Node02 .tree1Info .BtnWrap .BtnBlue23 a.btnSave,
+.treewrap.treewrap01 .treeRoot .treeLi .tree1Node.tree1Node02 .tree1Info .BtnWrap .BtnGray23 a.btnSave{ width:auto;}
+
+
+
+
+/*教师门户首页样式*/
+.indexMain{background-image:url(../img/bg/bg-1.png);background-repeat:repeat-y;}
+.indexMain .wrapper{ width:900px; margin:0 auto}
+.indexMain .header{padding:10px 10px 0 0;height:100px;line-height: 60px;}
+.indexMain .header .logo{ float:left; margin:20px 0 0 0;}
+.indexMain .header .oper{color:#848E97; margin:30px 0 0; float:right;height:14px; line-height:14px;}
+.indexMain .header .oper .operLf{ float:left;border-right:1px solid #848E97; padding:0 15px 0 0; }
+.indexMain .header .oper .operRt{ float:left; margin:0 0 0 15px;}
+.indexMain .header .oper a{color:#848E97;}
+.indexMain .mainWrap .mainTableCon img{padding:5px; margin-right:10px; margin-bottom:10px;}
+.indexMain .mainWrap .mainTableCon a{ float:left;}
+.indexMain .mainWrap .mainTableCon .imgRight{float:right;}
+.indexMain .mainWrap .mainTableCon .bigHover{background:url(../img/img/bigFrame.png) no-repeat;}
+.indexMain .mainWrap .mainTableCon .smallHover{ background:url(../img/img/smallFrame.png) no-repeat;}
+.indexMain .mainWrap .mainTableCon .bigHover:hover{background:url(../img/img/bigHover.png) no-repeat;}
+.indexMain .mainWrap .mainTableCon .smallHover:hover{background:url(../img/img/smallHover.png) no-repeat;}
+.indexMain .footer{ padding:40px 0;}
+.indexMain .footer p{color:#5F686D; text-align:center;height:20px; line-height:20px;}
+.down_background{height:41px;background-image:url(../img/bg/bg-2.png);}
+
+
+
+
+
+
+
+
+
+

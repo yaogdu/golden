@@ -1,0 +1,90 @@
+@charset "utf-8";
+/* CSS Document - 学校门户css*/
+
+/*左侧导航 图标*/
+.sideList.sideList01 li a{ padding:0 0 0 15px; text-align:left}
+.sidebar .sideList li a span{ background:url(../../img/school/ico/ico_menu.png) no-repeat 0 0; display:inline-block; width:16px; height:16px; margin:0 15px 0 0; vertical-align: -3px;}
+.sidebar .sideList li a span.menuIco01{ background-position:0 -16px;}
+.sidebar .sideList li a span.menuIco02{ background-position:-20px -20px;}
+.sidebar .sideList li a span.menuIco03{ background-position:-39px -20px;}
+.sidebar .sideList li a span.menuIco04{ background-position:-58px -20px;}
+.sidebar .sideList li a span.menuIco05{ background-position:-77px -20px;}
+.sidebar .sideList li a span.menuIco06{ background-position:-96px -17px;}
+.sidebar .sideList li a span.menuIco07{ background-position:-22px -64px;}
+.sidebar .sideList li a span.menuIco08{ background-position:0 -64px;}
+.sidebar .sideList li a span.menuIco09{ background-position:-110px -64px;}
+.sidebar .sideList li a span.menuIco10{ background-position:-88px -64px;}
+.sidebar .sideList li a span.menuIco11{ background-position:-66px -64px;}
+.sidebar .sideList li a span.menuIco12{ background-position:-44px -64px;}
+.sidebar .sideList li a span.menuIco13{ background-position:-133px -64px;}
+.sidebar .sideList li a span.menuIco14{ background-position:-156px -64px;}
+.sidebar .sideList li a span.menuIco15{ background-position:0 -110px;}
+.sidebar .sideList li.current a .menuIco01{ background-position:0 3px;}
+.sidebar .sideList li.current a .menuIco02{ background-position:-20px 0;}
+.sidebar .sideList li.current a .menuIco03{ background-position:-39px 0;}
+.sidebar .sideList li.current a .menuIco04{ background-position:-58px 0;}
+.sidebar .sideList li.current a .menuIco05{ background-position:-77px 0;}
+.sidebar .sideList li.current a .menuIco06{ background-position:-96px 3px;}
+.sidebar .sideList li.current a .menuIco07{ background-position:-22px -43px;}
+.sidebar .sideList li.current a .menuIco08{ background-position:0 -43px;}
+.sidebar .sideList li.current a .menuIco09{ background-position:-110px -43px;}
+.sidebar .sideList li.current a .menuIco10{ background-position:-88px -43px;}
+.sidebar .sideList li.current a .menuIco11{ background-position:-66px -43px;}
+.sidebar .sideList li.current a .menuIco12{ background-position:-44px -43px;}
+.sidebar .sideList li.current a .menuIco13{ background-position:-133px -43px;}
+.sidebar .sideList li.current a .menuIco14{ background-position:-156px -43px;}
+.sidebar .sideList li.current a .menuIco15{ background-position:0 -87px;}
+
+.sidebar .sideList li a em{ background:url(../../img/school/ico/icoBasic.png) no-repeat 0 0; width:9px; height:6px; display:inline-block; margin:0 0 0 10px; vertical-align: 1px;}
+.sidebar .sideList li a em.show{ background-position:-106px -69px ;}
+.sidebar .sideList li a em.hide{ background-position:-106px -84px ;}
+
+
+/*3-1教师管理*/
+.container .mainWrap .mainIndex .mainCon .mainTitle p{ float:left}
+
+
+/*学生管理*/
+.formCon .listTitle{ height:30px; line-height:30px; background-color:#f7f7f7; padding:0 0 0 5px; margin:0 0 5px 0;}
+.BtnWhite28 .btnSave .downloadIco { background-position: -26px -62px; }
+.BtnWhite28 .btnSave:hover .downloadIco{ background-position: -26px -78px; }
+.formList .BtnWhite28 .btnSave{ padding:0 10px 0 6px;}
+.formCon.formCon02 .formList{ padding:0 0 0 23px ;}
+.infoHint{ color:#aeaeae; clear:both}
+.conBtnWrap.conBtnWrap02{ margin: 0 0 0 32px;}
+.formTab .TabTit li{ border-radius:2px 2px 0 0;}
+.conBox .conFormList{ border-bottom:1px solid #cccccc;}
+.selectBoxWrap .btnTrigger.time{ background-position:-44px -58px;}
+.selectBoxWrap .trigger:hover  .btnTrigger.time{background-position:-44px -74px;}
+.infoHint.infoHint01{ float:left; clear:none; margin:2px 0 0 6px;}
+
+
+/*1-1班级管理*/
+.formTab.formTab01{ padding:10px 0 0 8px;}
+.container .mainWrap .mainIndex .mainCon .mainTitle p.fr{ float:right; margin:0 10px 0 0;}
+.container .mainWrap .mainIndex .mainCon .conBox .operBtn{ margin-top:-5px;}
+.operBtn .BtnWhite28 a.btnSave{padding: 0 10px;}
+.BtnWhite28 a.btnSave .upgradeIco { background-position: -62px -62px; vertical-align:-3px; }
+.BtnWhite28 a.btnSave:hover .upgradeIco{ background-position: -62px -78px; }
+.BtnWhite28 a.btnSave .graduateIco { background-position: -77px -60px; }
+.BtnWhite28 a.btnSave:hover .graduateIco{ background-position: -77px -76px; }
+.BtnWhite28 a.btnSave.btnSave01{}
+.BtnWhite28 a.btnSave.btnSave01:hover{ color:#296fad}
+
+/*1-2添加班级*/
+.formCon .formList .info.info01{ width:650px;}
+.formCon .formList .info.info01 .infoBox{ margin: 0 0 16px 0;}
+.formCon .formList .info.info01 .infoBox label{ min-width:70px; text-align:center}
+
+/*1-4查看教师*/
+.conBox .conFormList.conFormList .conForm .info .infoLabel{ color:#000;}
+
+/*查看课程模版*/
+.conBox .conFormList.conFormList01{ border:none; padding-left: 28px; padding-right: 28px;}
+.BtnWrap.BtnWrap01{ float:right; margin:0;}
+
+
+
+
+
+

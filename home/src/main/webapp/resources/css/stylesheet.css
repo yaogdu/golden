@@ -1,0 +1,93 @@
+@charset "utf-8";
+/* CSS Document 智慧网*/
+
+
+/* 智慧网与星空网不一样的宽度 及 其他特殊情况 */
+.mainWrap .mainBoxCon .mainIndex .mainCon.mainCon01{ width:745px; margin:0;}
+.treewrap.treewrap01 .treeRoot .treeLi .treeUl.treeUl02{ width:461px;}
+.windowCon.windowCon01 .windowBoxTp{border-bottom:1px dashed #f0f0f0;}
+.windowCon.windowCon01 .windowBoxTp .infoLbl{ font-size:14px; padding:0 0 15px 0;}
+.windowCon.windowCon01 .formCon{ margin:0;}
+.windowWrap .windowBox .windowT .windowMain .windowCon.windowCon01 .formCon .formList label{ min-width:inherit; margin:0;}
+.windowCon.windowCon01 .formCon .formList .info .infoBox{ margin:0 0 10px 0; clear:both}
+.windowCon.windowCon01 .infoHint{ color:#E60012; margin:0;}
+.nataDetail .nataSortList .sortListBox .BtnWrap.show{ display:block;}
+.mainTabWrap .infodata{ float:right; color:#808080;}
+.mainTabWrap .infodata em{ font-weight:bold;}
+.list .listTable tbody tr td .starIco em{ margin:0 10px 0 0;}
+.formCon .formList .info span.infoLabel{ margin:2px 0 0 0; color:#000;}
+
+.main01{ margin:18px 0 0 0;}
+.formCon.formCon02 .formList label{ margin-top:0;}
+.main .mainIndex .infoList dl dd .infoBox{ float:left;}
+.main .mainIndex .infoList dl dd .infoBox .infoCkb{ margin:2px 0 0 0;}
+.infoList dl dd .BtnGray23 a.btnSave { float: left; height: 23px; padding: 0 5px 0 0;}
+.infoList dl dd .BtnGray23 a .swIco02 { background:url(../img/ico/ico_upload.png) no-repeat -20px 7px; float: right; height:22px; width:16px;}
+.infoList dl dd .BtnGray23 a .swIco02:hover{ background-position:-20px -15px;}
+.infoList dl dd .clear{ color:#1476c8; float:left; line-height:22px; cursor:pointer;}
+.infoList dl.selected{ background-color:#f4f4f4;}
+.hintBubble{ border:1px solid #efc657; border-radius:5px; background-color:#fffce1; padding:10px; position:absolute; left:90px; }
+.hintBubble .hintIco{ display:block; width:9px; height:6px; background:url(../img/ico/ico_upload.png) no-repeat -144px -94px; position:absolute; top:-6px; left:10px;}
+.hintBubble p{ color:#efc657}
+.hintBubble a{ color:#1476c8; margin:10px 0 0 0; display:block}
+.infoList dl dd .BtnGray23{ margin:0;}
+
+.windowWrap .windowBox.windowBox01{ }
+.windowWrap .windowBox .windowT .windowMain .windowCon .formCon .formList .info p.infoLabel{ margin:0;}
+.windowWrap .windowBox .windowT .windowMain .windowCon .mainCon .mainTitle{ padding:0;}
+.windowWrap .windowBox .windowT .windowMain .windowCon .mainCon .formCon .formList .info .infoBox{ margin:0 20px 0 0;}
+.windowWrap .windowBox .windowCon .windowBoxRt{ margin:0 0 0 40px;}
+.formCon .formBox{ border:1px solid #dfdfdf;}
+
+.list.list01 .listTable tbody tr td .state{ color:#ff1800}
+.windowWrap .windowBox .windowT .windowMain .windowCon .infoTxt b{ height:auto; line-height:normal;}
+.dateIco{ width:14px; height:13px; background:url(../img/ico/ico_upload.png) no-repeat -62px -103px; display:inline-block; margin:5px 10px 0; float:left}
+
+.formCon.formCon03 .formList{ margin:0 0 10px 0;}
+.formCon.formCon03 .formList .info .windowBoxTp{ border:none;}
+.formCon.formCon03 .formList .info .windowBoxRt{ margin:0 0 0 26px; }
+.formCon.formCon03 .formList .info .windowBoxLf{ margin:3px 0 0 0;}
+.formCon.formCon03 .formList .info .inputText{ width:88px;}
+.windowWrap .windowBox .windowMain .windowCon.windowCon01 .formCon.formCon03 .formList .labelTp3{margin:3px 0 0 0;}
+.formCon .formList .info .current .inputText{ color:#000;}
+.windowWrap .windowBox .windowMain .windowCon.windowCon01 .formCon.formCon03 .formList .info .trigger .selectText{ color:#a8a8a8;}
+.windowWrap .windowBox .windowMain .windowCon.windowCon01 .formCon.formCon03 .formList .info .current .trigger .selectText{ color:#000;}
+
+.mainConWrap .mainCon .mainTabWrap{ padding:0; border:none; float:left}
+.mainConWrap .mainCon .conNataWrap .nataHead.nataHead01{ line-height:normal; padding:0 0 5px 0;}
+.sidebar .sdbTltle.sdbTltle01 li a{ width:100%}
+.conNataWrap .conNata .nataSelect .nataList{ padding:5px 10px;}
+
+/** 列表操作按钮相关 */
+.BtnOrange24 a.btnSave{display:inline;}
+.BtnWrap{margin:0;}
+
+
+/** 上传页面暂用 */
+
+.conFormWrap .formCon .formList{ line-height: normal;}
+.conFormWrap .formCon .formList .info .infoAdd{ overflow:hidden}
+.conFormWrap .formCon .formList .info .infoAdd .AddBoxWrap{  float:left; margin: 0 10px 0 0;}
+.conFormWrap .formCon .formList .info .infoAdd .AddBoxWrap.AddBoxWrap01{ margin:0 0 0 10px}
+.conFormWrap .formCon .formList .info .infoAdd .AddTitle{ height:30px; line-height:30px; background-color:#f7f7f7;font-weight:bold; color:#999999; padding:0 10px; }
+.conFormWrap .formCon .formList .info .infoAdd .AddBox{ float:left; border:1px solid #cccccc; width:168px; height:182px; padding:5px 0; overflow-y:auto}
+.conFormWrap .formCon .formList .info .infoAdd .AddBox li{ height:20px; line-height:20px; padding:0 10px; cursor:pointer;}
+.conFormWrap .formCon .formList .info .infoAdd .AddBox li.current,.conFormWrap .formCon .formList .info .infoAdd .AddBox li.current:hover{ background-color:#50a2df; color:#ffffff;}
+.conFormWrap .formCon .formList .info .infoAdd .AddBox li:hover{ background-color:#eff2f9;}
+.conFormWrap .formCon .formList .info .infoAdd .BtnWrap{ margin:60px 0 0 0; float:left; width:60px;}
+.conFormWrap .formCon .formList .info .infoAdd .BtnWrap .search{ margin:0 0 16px 0;}
+.conBtnWrap .search{ width:95px; height:30px; line-height:30px; background-color:#feb04a; font-size:14px; }
+div.infoRadio{margin-right:20px;}
+.infoRadio span{color:#999999;}
+
+
+.btn-blue22{ float:left;text-align:center;}
+.btn-blue22 a.btnSave{ height:22px; line-height:22px;  padding:0 15px; background-color:#6fb3e0; display:block; color:#fff;}
+.btn-blue22 a.btnSave:hover{ background-color:#3091d1;}
+
+.search{ display:inline-block;}
+.search > a.btnSave{ height:22px; line-height:22px;  padding:0 15px; background-color:#6fb3e0; display:block; color:#fff;}
+.search > a.btnSave:hover{ background-color:#3091d1;}
+
+.margin-top5{margin-top:5px;}
+.margin-left5{margin-left:5px;}

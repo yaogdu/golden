@@ -1,0 +1,60 @@
+@charset "utf-8";
+/* CSS Document */
+
+body,div,span,h1,h2,h3,h4,h5,h6,p,hr,dl,dt,dd,ul,ol,li,form,input,button,textarea,img,clear,span,table,tr,td{margin:0;padding:0;outline:none}
+body{font-family:"微软雅黑";background:#ccc;}
+ul{ list-style:none;}
+li{ list-style:none;}
+ol{ list-style:none;}
+img{ border:0px;}
+a img{ border:0px;}
+a{ text-decoration:none; border:0px; outline:none;}
+
+
+.top_box{width:1000px;height:35px;overflow:hidden;margin:0 auto;}
+.center{width:130px;height:20px;float:right;margin-top:10px;}
+.center span{float:left;margin-right:5px;}
+.center .sj{margin-top:7px;}
+
+.container{width:960px;height:auto;margin:0 auto;margin-top:30px;}
+.sm_nav{height:30px;color:#666;font-size:14px;}
+.sm_nav a{color:#666;font-size:14px;}
+
+.mainbody{width:958px;height:auto;border:1px solid #666;margin-top:10px;background:#fff;}
+.tit_box{width:958px;height:30px;background:#e4e4e4;border-bottom:1px solid #666;}
+.tit_box p{height:30px;width:600px;float:left;line-height:30px;text-align:right;}
+.tit_rt{width:300px;float:right;line-height:30px;}
+.tit_rt a{float:left;margin-right:30px;text-decoration:underline;}
+
+.main_con{width:898px;height:auto;padding:30px;}
+.main_top{height:34px;}
+.main_top_lt{width:240px;float:left;}
+.main_top_lt select{width:100px;}
+.main_top_lt span{font-size:14px;line-height:34px;}
+
+.main_top_rt{width:170px;float:right;}
+.main_top_rt span{height:34px;line-height:34px;float:left;font-size:14px;}
+.main_top_rt a{height:34px;width:110px;display:block;float:right;background:#CCC;text-align:center;line-height:34px;font-size:14px;color:#fff;}
+
+.table_box{width:898px;height:350px;margin-top:20px;}
+.table_box table{width:898px;height:350px;border-collapse:collapse;border:none;}
+.table_box table td{border:1px solid #ccc ;font-size:12px;padding-left:15px;}
+.table_box table .td1{width:240px;background:#ebebeb;}
+.table_box table .tr1{background:#d7d7d7;}
+.table_box table .tr1 td{text-align:center;background:#d7d7d7;font-size:14px;}
+
+.table_box table .tr2{background:#e4e4e4;}
+.table_box table .tr2 td{border-bottom:2px solid #999;font-size:14px;}
+.table_box table .button{border:10px;font-size:12px;float:right;}
+
+
+
+
+
+
+
+
+
+
+
+

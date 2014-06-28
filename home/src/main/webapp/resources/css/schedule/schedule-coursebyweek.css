@@ -1,0 +1,77 @@
+
+.maincontent {
+    width: 800px;
+    margin: 0 auto;
+    border: solid 1px black;
+    font-size: 12px;
+}
+
+.maincontent .title {
+    font-weight: bold;
+    padding: 5px;
+    text-align:center;
+    background-color:lightgray;
+    border-bottom:solid black 1px;
+}
+
+.maincontent .content {
+    padding: 10px;
+}
+
+    .maincontent .choose select, .maincontent .choose input[type='text'] {
+        width: 100px;
+    }
+
+.maintable {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.maintable th {
+    font-size: 15px;
+}
+
+.maintable td, .maintable th {
+    padding: 10px;
+}
+
+.chapter td {
+    font-size: 13px;
+    font-weight: bold;
+    background-color: lightgray;
+}
+
+.section td {
+    padding-left: 50px;
+}
+
+#maincontent {
+    table-layout: fixed;
+    border-left: solid 1px black;
+    border-top: solid 1px black;
+    margin-top: 20px;
+}
+
+    #maincontent td, #maincontent th {
+        border: solid 1px black;
+        text-align: center;
+        height: 30px;
+        border-left-width: 0px;
+        border-top-width: 0px;
+    }
+
+    #maincontent td {
+        height: 60px;
+        background-color:lightgray;
+    }
+    #maincontent th {
+        color:white;
+        background-color:gray;
+    }
+    #maincontent .period {
+        font-weight:bold;
+    }
+    .page-buttom {
+        text-align: center;
+        padding: 10px;
+    }

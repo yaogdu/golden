@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+
+  <context:component-scan base-package="com.home.common.service" />
+  <context:component-scan base-package="com.home.service" />
+  <context:component-scan base-package="com.home.controller" />
+
+  <!-- <bean id="questionService" class="com.noriental.quiz.service.impl.QuestionServiceImpl"/> <bean id="paperService" class="com.noriental.quiz.service.impl.PaperServiceImpl"> 
+    <property name="remoteURL" value="${system.remote}"></property> </bean> <bean id="documentService" class="com.noriental.common.service.impl.DocumentServiceImpl"> 
+    <property name="homeDirectory" value="${system.document.home}"></property> <property name="staticDirectory" value="${system.document.static}"></property> 
+    </bean> <bean id="docParseService" class="com.noriental.quiz.service.impl.DocParseServiceImpl"> <property name="remoteURL" value="${system.remote}"></property> 
+    </bean> <bean id="topicService" class="com.noriental.topic.service.impl.TopicServiceImpl"/> <bean id="moduleService" class="com.noriental.topic.service.impl.ModuleServiceImpl"/> 
+    <bean id="seriesService" class="com.noriental.topic.service.impl.SeriesServiceImpl"/> <bean id="unitService" class="com.noriental.topic.service.impl.UnitServiceImpl"/> 
+    <bean id="resourceService" class="com.noriental.resource.service.impl.ResourceServiceImpl"/> <bean id="cwService" class="com.noriental.resource.service.impl.CoursewareServiceImpl"/> 
+    <bean id="materialService" class="com.noriental.resource.service.impl.MaterialServiceImpl"/> <bean id="clipService" class="com.noriental.resource.service.impl.ClipServiceImpl"/> 
+    <bean id="tpService" class="com.noriental.resource.service.impl.TestPaperServiceImpl"/> -->
+  <!-- service -->
+  <bean id="userService" class="com.home.service.impl.UserServiceImpl" />
+  <bean id="userHardwareService" class="com.home.service.impl.UserHardwareServiceImpl" />
+  <bean id="userSoftwareService" class="com.home.service.impl.UserSoftwareServiceImpl" />
+  <bean id="softwareService" class="com.home.service.impl.SoftwareServiceImpl" />
+  <bean id="registerService" class="com.home.service.impl.RegisterServiceImpl" />
+  <bean id="adService" class="com.home.service.impl.AdServiceImpl" />
+  <bean id="mrService" class="com.home.service.impl.MrServiceImpl" />
+  <bean id="apService" class="com.home.service.impl.ApServiceImpl" />
+  <bean id="userHistoryService" class="com.home.service.impl.UserHistoryServiceImpl" />
+  <bean id="locationService" class="com.home.service.impl.LocationServiceImpl" />
+  <bean id="adIdService" class="com.home.service.impl.AdIdServiceImpl" />
+  <bean id="apIdService" class="com.home.service.impl.ApIdServiceImpl" />
+  <bean id="mrIdService" class="com.home.service.impl.MrIdServiceImpl" />
+   <bean id="resourceService" class="com.home.service.impl.ResourceServiceImpl" />
+
+  <!-- dao -->
+  <bean id="userDao" class="com.home.business.impl.UserDaoImpl"></bean>
+  <bean id="userHardwareDao" class="com.home.business.impl.UserHardwareDaoImpl"></bean>
+  <bean id="userSoftwareDao" class="com.home.business.impl.UserSoftwareDaoImpl"></bean>
+  <bean id="softwareDao" class="com.home.business.impl.SoftwareDaoImpl"></bean>
+  <bean id="registerDao" class="com.home.business.impl.RegisterDaoImpl"></bean>
+  <bean id="adDao" class="com.home.business.impl.AdDaoImpl"></bean>
+  <bean id="mrDao" class="com.home.business.impl.MrDaoImpl"></bean>
+  <bean id="apDao" class="com.home.business.impl.ApDaoImpl"></bean>
+  <bean id="userHistoryDao" class="com.home.business.impl.UserHistoryDaoImpl"></bean>
+  <bean id="locationDao" class="com.home.business.impl.LocationDaoImpl"></bean>
+  <bean id="apIdDao" class="com.home.business.impl.ApIdDaoImpl"></bean>
+  <bean id="adIdDao" class="com.home.business.impl.AdIdDaoImpl"></bean>
+  <bean id="mrIdDao" class="com.home.business.impl.MrIdDaoImpl"></bean>
+   <bean id="resourceDao" class="com.home.business.impl.ResourceDaoImpl"></bean>
+
+</beans>

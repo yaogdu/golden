@@ -1,0 +1,30 @@
+<!-- 优选题 -->
+<div data-qid="{{:id}}" class="qbody">
+    <div class="title">
+        <span>题号：{{:id}}</span><span style="float: right"><a href="#">编辑</a>&nbsp;&nbsp;<a href="#">删除</a> </span>
+    </div>
+    <div>
+        <label class="qBodyTitle">&lt;题型&gt;</label>
+        <label>{{:questionType}}</label>
+        <label class="qBodyTitle">&lt;题干&gt;</label>
+        <div>
+            <img width="700"  src="{{:qBody}}">
+        </div>
+        <label class="qBodyTitle">&lt;选项&gt;</label>
+        <div>
+            <img width="700"  src="{{:qOptions}}">
+        </div>
+        <label class="qBodyTitle">&lt;最优答案&gt;</label>
+        <div>
+            <img src="{{:answer1}}">
+        </div>
+        <label class="qBodyTitle">&lt;次优答案&gt;</label>
+        <div>
+            <img src="{{:answer2}}">
+        </div>
+        <label class="qBodyTitle">&lt;解析&gt;</label>
+        <div>
+            <img width="700"  src="{{:qAnalysis}}">
+        </div>
+    </div>
+</div>

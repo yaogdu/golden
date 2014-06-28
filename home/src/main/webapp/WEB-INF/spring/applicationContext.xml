@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd 
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd ">
+ 
+    <context:property-placeholder location="classpath*:*.properties" ignore-unresolvable="true" />
+
+    <context:annotation-config/>
+    
+    <!-- <bean id="tableTask" class="com.home.global.util.TableTask"></bean>
+    <bean id="scheduledTask" class="org.springframework.scheduling.timer.ScheduledTimerTask">  
+    <property name="delay" value="4000000"></property>  
+    <property name="period" value="3600000"></property>  
+    <property name="timerTask" ref="tableTask" ></property>  
+    </bean>  
+   
+   <bean id="timerFactory" class="org.springframework.scheduling.timer.TimerFactoryBean">  
+    <property name="scheduledTimerTasks">  
+    <list>  
+        <ref local="scheduledTask"></ref>  
+    </list>  
+    </property>  
+</bean>   -->
+    <!-- <jpa:repositories base-package="com.noriental.common.repository"/> -->
+
+    <!-- hibernate configuration -->
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="dataSource" ref="mysqlDataSource" />
+        <property name="persistenceUnitName" value="spring-jpa" />
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+                <property name="showSql" value="true" />
+                <property name="generateDdl" value="true" />
+                <property name="databasePlatform" value="${db.dialect}" />
+            </bean>
+        </property>
+    </bean>
+
+
+<bean id=" myRealm" class="com.home.global.util.MyRealm" />  
+
+<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">  
+    <property name="realm" ref="myRealm" />  
+</bean>  
+<bean id="cacheLoder" lazy-init="true" class="com.home.global.InitParamSetting" init-method="init" />
+<tx:annotation-driven transaction-manager="transactionManager" />
+
+
+
+<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">  
+    <property name="securityManager" ref="securityManager" />  
+   <!--  <property name="loginUrl" value="login.jsp" />  
+    <property name="successUrl" value="/login/index" />  
+    <property name="unauthorizedUrl" value="index.jsp" />  
+    <property name="filterChainDefinitions">  
+        <value>  
+           /login = authc, roles[admin]
+           /login/index = authc, perms[document:read]
+           /** = authc
+        </value>  
+    </property>  
+     -->
+</bean>  
+
+<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory" />
+    </bean>
+
+    <bean id="mysqlDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${db.driver}"/>
+        <property name="url" value="${db.url}"/>
+        <property name="username" value="${db.username}"/>
+        <property name="password" value="${db.password}"/>
+    </bean>
+
+  <bean id="fileUtil" class="com.home.global.util.FileUtil">
+       <property name="storeDir" value="/Data/"/>
+    <property name="ffmpegPath" value="/home/ad/ffmpeg/"/>  
+   <!-- <property name="storeDir" value="/Users/poppet/Desktop/"/>
+    <property name="ffmpegPath" value="/Users/poppet/storage/"/> -->
+  </bean>
+
+    <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+
+    <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
+
+    <bean id="serviceLocator" class="com.home.global.context.ServiceLocator" scope="singleton"/>
+</beans>
