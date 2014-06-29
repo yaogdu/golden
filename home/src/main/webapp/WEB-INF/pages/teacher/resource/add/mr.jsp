@@ -29,6 +29,7 @@
 			                              		<ul class="mainTab" style="float:none;">
 					                                <li style="line-height:normal;"><a data-id=2 href="${ctx }/ad"><span>广告</span></a></li>
                                                     <li style="line-height:normal;" class="current"><a href="${ctx }/mr"><span>调研</span></a></li>
+                                                    <li style="line-height:normal;" ><a href="${ctx }/ap"><span>应用</span></a></li>
 				                              	</ul>
 				                              	<div class="conFormWrap">
 					                              	<div class="formCon">

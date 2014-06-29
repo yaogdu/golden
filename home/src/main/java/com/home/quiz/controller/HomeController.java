@@ -24,6 +24,12 @@ public class HomeController {
     return new ModelAndView("teacher/resource/add/ad");
   }
 
+  @RequestMapping(value = "ap", method = RequestMethod.GET)
+  public ModelAndView ap() {
+    // throw new CustomGenericException("500","hello exception");
+    return new ModelAndView("teacher/resource/add/ap");
+  }
+
   @RequestMapping(value = "mr", method = RequestMethod.GET)
   public ModelAndView mr() {
     // throw new CustomGenericException("500","hello exception");

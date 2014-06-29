@@ -46,7 +46,7 @@ returnurl = '<%=returnurl == null ? "" :  returnurl%>';
 
     <%--/school/class/toListPage--%>
 									<div style="margin-top:120px;font-size:24px;line-height:50px;text-align:center;">
-										<p><a href="javascript:void(0);">Advertisement Platform</a></p>
+										<p><a href="javascript:void(0);">Welcome to Golden Palm</a></p>
 									</div>
                   
                 <!-- main end -->
