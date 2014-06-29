@@ -19,9 +19,15 @@ public class HomeController {
   private static final Logger logger = Logger.getLogger(HomeController.class);
 
   @RequestMapping(value = "ad", method = RequestMethod.GET)
-  public ModelAndView index() {
+  public ModelAndView ad() {
     // throw new CustomGenericException("500","hello exception");
     return new ModelAndView("teacher/resource/add/ad");
+  }
+
+  @RequestMapping(value = "mr", method = RequestMethod.GET)
+  public ModelAndView mr() {
+    // throw new CustomGenericException("500","hello exception");
+    return new ModelAndView("teacher/resource/add/mr");
   }
 
   /*--------------------------------------------

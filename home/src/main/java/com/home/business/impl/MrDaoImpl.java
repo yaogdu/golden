@@ -29,7 +29,7 @@ public class MrDaoImpl extends BaseEntityDao<MarketingResearch> implements MrDao
     // String sql=""select * from t_marketing_research where mr_id in (select uh_id from
     // t_user_history where uh_type=1 and u_id=?1 and uh_status!=5 and uh_id>?2 order by uh_id desc
     // ) order by mr_id desc"";
-    Query query = em.createNativeQuery(sql, AppPromotion.class);
+    Query query = em.createNativeQuery(sql, MarketingResearch.class);
     query.setParameter(1, uid);
     query.setParameter(2, ts);
 

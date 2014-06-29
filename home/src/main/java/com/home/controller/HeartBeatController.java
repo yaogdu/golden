@@ -1,6 +1,7 @@
 package com.home.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
 
@@ -251,11 +252,11 @@ public class HeartBeatController {
 
     // ObjectMapper om = new ObjectMapper();
 
-    final List<Advertisement> ads = adService.CustomizedAd(ts, 1400902079012l);
+    final List<Advertisement> ads = adService.CustomizedAd(ts, Long.parseLong("1400902079012"));
 
-    final List<MarketingResearch> mrs = mrService.CustomizedMr(ts, 1400902079012l);
+    final List<MarketingResearch> mrs = mrService.CustomizedMr(ts, Long.parseLong("1400902079012"));
 
-    final List<AppPromotion> aps = apService.CustomizedAp(ts, 1400902079012l);
+    final List<AppPromotion> aps = apService.CustomizedAp(ts, Long.parseLong("1400902079012"));
 
     // final List<Advertisement> ads = adService.publicAd(ts);
     //
@@ -282,54 +283,55 @@ public class HeartBeatController {
       result.put("aps", new JSONArray());
     }
     try {
-      AsyncTaskExecutor executor = new SimpleAsyncTaskExecutor();// webAsyncTask.getexecutor()
-      executor.submit(new Callable<String>() {
 
-        @Override
-        public String call() throws Exception {
-
-          // TODO changed:save userhistory to db
-
-          long uid = 0;
-          if (user != null) {
-            uid = user.getId();
-          }
-          for (Advertisement ad : ads) {
-            UserHistory uh = new UserHistory();
-            Thread.sleep(1);
-            uh.setUid(uid);
-            uh.setId(System.currentTimeMillis());
-            uh.setStatus(HistoryStatus.PUSHED);
-            uh.setType(HistoryType.AD);
-            uh.setUhId(ad.getId());
-            userHistoryService.recordPublicHeartBeat(uh);
-          }
-
-          for (MarketingResearch mr : mrs) {
-            UserHistory uh = new UserHistory();
-            Thread.sleep(1);
-            uh.setUid(uid);
-            uh.setId(System.currentTimeMillis());
-            uh.setStatus(HistoryStatus.PUSHED);
-            uh.setType(HistoryType.MR);
-            uh.setUhId(mr.getId());
-            userHistoryService.recordPublicHeartBeat(uh);
-          }
-
-          for (AppPromotion ap : aps) {
-            UserHistory uh = new UserHistory();
-            Thread.sleep(1);
-            uh.setUid(uid);
-            uh.setId(System.currentTimeMillis());
-            uh.setStatus(HistoryStatus.PUSHED);
-            uh.setType(HistoryType.AP);
-            uh.setUhId(ap.getId());
-            userHistoryService.recordPublicHeartBeat(uh);
-          }
-
-          return "";
-        }
-      });
+      // AsyncTaskExecutor executor = new SimpleAsyncTaskExecutor();// webAsyncTask.getexecutor()
+      // executor.submit(new Callable<String>() {
+      //
+      // @Override
+      // public String call() throws Exception {
+      //
+      // // TODO changed:save userhistory to db
+      //
+      // long uid = 0;
+      // if (user != null) {
+      // uid = user.getId();
+      // }
+      // for (Advertisement ad : ads) {
+      // UserHistory uh = new UserHistory();
+      // Thread.sleep(1);
+      // uh.setUid(uid);
+      // uh.setId(System.currentTimeMillis());
+      // uh.setStatus(HistoryStatus.PUSHED);
+      // uh.setType(HistoryType.AD);
+      // uh.setUhId(ad.getId());
+      // userHistoryService.recordPublicHeartBeat(uh);
+      // }
+      //
+      // for (MarketingResearch mr : mrs) {
+      // UserHistory uh = new UserHistory();
+      // Thread.sleep(1);
+      // uh.setUid(uid);
+      // uh.setId(System.currentTimeMillis());
+      // uh.setStatus(HistoryStatus.PUSHED);
+      // uh.setType(HistoryType.MR);
+      // uh.setUhId(mr.getId());
+      // userHistoryService.recordPublicHeartBeat(uh);
+      // }
+      //
+      // for (AppPromotion ap : aps) {
+      // UserHistory uh = new UserHistory();
+      // Thread.sleep(1);
+      // uh.setUid(uid);
+      // uh.setId(System.currentTimeMillis());
+      // uh.setStatus(HistoryStatus.PUSHED);
+      // uh.setType(HistoryType.AP);
+      // uh.setUhId(ap.getId());
+      // userHistoryService.recordPublicHeartBeat(uh);
+      // }
+      //
+      // return "";
+      // }
+      // });
       result.put("ts", System.currentTimeMillis());
       result.put("returncode", ReturnCode.code200);
       result.put("success", true);

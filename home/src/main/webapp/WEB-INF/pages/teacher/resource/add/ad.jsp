@@ -27,7 +27,10 @@
 										<div class="nataHead nataHead01">
 			                            	<div class="mainTabWrap" style="border:0;padding:0;">
 			                              		<ul class="mainTab" style="float:none;">
-					                                <li style="line-height:normal;" class="current"><a data-id=2 href="javascript:void(0)"><span>广告</span></a></li>
+                                                    <li style="line-height:normal;" class="current"><a data-id=2 href="${ctx }/ad"><span>广告</span></a></li>
+                                                    <li style="line-height:normal;" ><a href="${ctx }/mr"><span>调研</span></a></li>
+                                        
+					                                <!-- <li style="line-height:normal;" class="current"><a data-id=2 href="javascript:void(0)"><span>广告</span></a></li> -->
 					                                <%-- <li style="line-height:normal;"  ><a data-id=0 href="${ctx }/teacher/resource/createMaterial"><span>教学资料</span></a></li>
 					                                <li style="line-height:normal;"><a data-id=-1 href="${ctx }/teacher/resource/createClip"><span>素材</span></a></li> --%>
 				                              	</ul>
