@@ -1,16 +1,21 @@
 package com.home.business.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Query;
 
+import org.apache.log4j.Logger;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.home.business.AdDao;
 import com.home.business.BaseEntityDao;
 import com.home.domain.Advertisement;
+import com.home.domain.UserHistory;
 
 public class AdDaoImpl extends BaseEntityDao<Advertisement> implements AdDao {
+
+  private static final Logger logger = Logger.getLogger(AdDaoImpl.class);
 
   @Override
   @Transactional
@@ -21,17 +26,28 @@ public class AdDaoImpl extends BaseEntityDao<Advertisement> implements AdDao {
 
   @Override
   public List<Advertisement> CustomizedAd(long ts, long uid) {
-    String sql =
-        "select a.*, uh.uh_status status "
-            + " from t_advertisement  a left join t_resource r on (a.ad_id=r.r_owner_id and r.r_owner_type=0 ) "
-            + " left join t_user_history uh on(a.ad_id=uh.uh_item_id and uh.u_id=?1) " + " where a.ad_id>?2 order by a.ad_id desc";
+    // String sql =
+    // "select a.*, uh.uh_status as status "
+    // +
+    // " from t_advertisement  a left join t_resource r on (a.ad_id=r.r_owner_id and r.r_owner_type=0 ) "
+    // + " left join t_user_history uh on(a.ad_id=uh.uh_item_id and uh.u_id=?1) " +
+    // " where a.ad_id>?2 order by a.ad_id desc";
 
+    String sql = "select a  from Advertisement a, UserHistory uh where a.id=uh.uhId and uh.uid=:uid and a.id>:id  ";
     // String
     // sql="select * from t_advertisement where ad_id in (select uh_id from t_user_history where uh_type=0 and uh_status!=5 and u_id=?1 and uh_id>?2 order by uh_id desc  ) order by ad_id desc ";
-    Query query = em.createNativeQuery(sql, Advertisement.class);
-    query.setParameter(1, uid);
-    query.setParameter(2, ts);
-    return (List<Advertisement>) query.getResultList();
+    // Query query = em.createNativeQuery(sql, Advertisement.class);
+    Query query = em.createQuery(sql, Advertisement.class);
+    query.setParameter("uid", uid);
+    query.setParameter("id", ts);
+    logger.info(String.format("select a.*, uh.uh_status ad_status "
+        + " from t_advertisement  a left join t_resource r on (a.ad_id=r.r_owner_id and r.r_owner_type=0 ) "
+        + " left join t_user_history uh on(a.ad_id=uh.uh_item_id and uh.u_id= %d) " + " where a.ad_id> %d order by a.ad_id desc", uid, ts));
+
+    List<Advertisement> list = (List<Advertisement>) query.getResultList();
+
+    return list;
+    // return (List<Advertisement>) query.getResultList();
   }
 
   @Override

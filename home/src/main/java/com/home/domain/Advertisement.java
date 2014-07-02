@@ -14,7 +14,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 @Entity

@@ -74,6 +74,8 @@ public class MrController {
   @Autowired
   UserService userService;
 
+  ExecutorService es = Executors.newFixedThreadPool(10);
+
   private String ffmpegPath;
 
   @RequestMapping(value = "/claim", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -182,7 +184,7 @@ public class MrController {
           cap.capture(map);
           final Map m = new HashMap<>(map);
           if (!"mp4".equals(fileNames[1].toLowerCase())) {
-            ExecutorService es = Executors.newFixedThreadPool(10);
+
             es.execute(new Runnable() {
               @Override
               public void run() {

@@ -1,5 +1,7 @@
 package com.home.business.impl;
 
+import java.util.List;
+
 import javax.persistence.Query;
 
 import org.springframework.transaction.annotation.Transactional;
@@ -14,6 +16,17 @@ public class UserHistoryDaoImpl extends BaseEntityDao<UserHistory> implements Us
   public Class<UserHistory> getEntityType() {
     // TODO Auto-generated method stub
     return null;
+  }
+
+  @Override
+  public List<UserHistory> getStatus(int type, String ids, long uid) {
+    StringBuffer sql = new StringBuffer("select * from t_user_history where uh_type=?1 and u_id=?2 and uh_item_id in (" + ids + ")");
+
+    Query query = em.createNativeQuery(sql.toString(), UserHistory.class);
+    query.setParameter(1, type);
+    query.setParameter(2, uid);
+
+    return (List<UserHistory>) query.getResultList();
   }
 
   @Override
@@ -38,5 +51,4 @@ public class UserHistoryDaoImpl extends BaseEntityDao<UserHistory> implements Us
     System.out.println("updateHistoryStatus result :" + query.executeUpdate());
 
   }
-
 }
