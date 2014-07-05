@@ -2,7 +2,7 @@ package com.home.global.util;
 
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
@@ -10,6 +10,85 @@ import java.util.logging.Logger;
 public class VideoCapture {
 
   private static final Logger logger = Logger.getLogger(VideoCapture.class.getName());
+
+  public static void main(String[] args) {
+    processTest("/Users/poppet/Desktop/cc.flv", "/Users/poppet/Desktop/cc2.mp4");
+  }
+
+  public static boolean processTest(String inputPath, String outputPath) {
+
+    // 文件命名
+
+    // String savename = map.get("oriSavePath").toString();;
+    List<String> commend = new ArrayList<String>();
+    // -y, -i, /data/res_fs/qv/66/47/qv_hnRjgR4766.ori.mp4,
+    // -f, mp4, /data/res_fs/qv/66/47/qv_hnRjgR4766/mp4/qv_hnRjgR4766.mp4,
+    // -an, -vcodec, png, -vframes, 1, -ss, 00:00:01,
+    // /data/res_fs/qv/66/47/qv_hnRjgR4766.ori.png
+
+    String c = String.format("/Users/poppet/storage/ffmpeg -y -i %s -pix_fmt yuv420p -r 30 -f mp4 %s ", inputPath, outputPath);
+    // String c =
+    // String.format("/Users/poppet/storage/ffmpeg -y -i %s vcodec libx264 -b:v 512k -f mp4 %s ",
+    // inputPath, outputPath);
+    // String c =
+    // String.format("/Users/poppet/storage/ffmpeg -y -i %s -pix_fmt yuv420p -vcodec h264 -f mp4 %s ",
+    // inputPath, outputPath);
+
+    // String c =
+    // String.format("/Users/poppet/storage/ffmpeg -y -i %s -f mp4 -bitexact -vcodec h263 -b:v 512k -ab 320k %s ",
+    // inputPath, outputPath);
+
+    // -an -vcodec png -vframes 1 -ss 00:00:01 %s
+
+    List<String> cc = Arrays.asList(c.split(" "));
+
+    for (String s : cc) {
+      commend.add(s);
+    }
+
+    logger.info(commend.toString());
+
+    try {
+
+      ProcessBuilder builder = new ProcessBuilder();
+      builder.command(commend);
+      // builder.start();
+
+      builder.redirectErrorStream(true);
+
+      logger.info("视频转换开始...");
+
+      builder.start();
+
+      Process process = builder.start();
+
+      InputStream in = process.getInputStream();
+
+      byte[] re = new byte[1024];
+
+      System.out.print("正在进行转换，请稍候");
+
+      while (in.read(re) != -1) {
+
+        System.out.print(".");
+
+      }
+      System.out.println("");
+
+      logger.info("success");
+
+      in.close();
+
+      return true;
+
+    } catch (Exception e) {
+
+      e.printStackTrace();
+
+      return false;
+
+    }
+  }
 
   public boolean capture(Map map) {
     // 视频文件
@@ -99,25 +178,33 @@ public class VideoCapture {
 
     String savename = map.get("oriSavePath").toString();;
     List<String> commend = new ArrayList<String>();
-    // -y, -i, /data/res_fs/qv/66/47/qv_hnRjgR4766.ori.mp4,
-    // -f, mp4, /data/res_fs/qv/66/47/qv_hnRjgR4766/mp4/qv_hnRjgR4766.mp4,
-    // -an, -vcodec, png, -vframes, 1, -ss, 00:00:01,
-    // /data/res_fs/qv/66/47/qv_hnRjgR4766.ori.png
 
-    commend.add(map.get("commandPath").toString() + "ffmpeg");
-    commend.add("-y");
-    commend.add("-i");
-    // commend.add("-qscale");
-    // commend.add("6");
-    commend.add(map.get("oriSavePath").toString());
+    String c =
+        String.format("%s -y -i %s -pix_fmt yuv420p -r 30 -f mp4 %s ", map.get("commandPath").toString() + "ffmpeg", map.get("oriSavePath")
+            .toString(), savename.substring(0, savename.lastIndexOf(".") + 1) + "mp4");
 
-    // String convertUrl = "-ab 128 -acodec libmp3lame -ac 1 -ar 22050 -r 29.97 -qscale 6 -y";
-    // String convertUrl = "-ac 1 -ar 22050 -r 29.97 -qscale 6 -y";
-    // commend.addAll(Arrays.asList(convertUrl.split(" ")));
+    List<String> cc = Arrays.asList(c.split(" "));
 
-    commend.add(savename.substring(0, savename.lastIndexOf(".") + 1) + "mp4");
+    for (String s : cc) {
+      commend.add(s);
+    }
 
     logger.info(commend.toString());
+
+    // commend.add(map.get("commandPath").toString() + "ffmpeg");
+    // commend.add("-y");
+    // commend.add("-i");
+    // // commend.add("-qscale");
+    // // commend.add("6");
+    // commend.add(map.get("oriSavePath").toString());
+    //
+    // // String convertUrl = "-ab 128 -acodec libmp3lame -ac 1 -ar 22050 -r 29.97 -qscale 6 -y";
+    // // String convertUrl = "-ac 1 -ar 22050 -r 29.97 -qscale 6 -y";
+    // // commend.addAll(Arrays.asList(convertUrl.split(" ")));
+    //
+    // commend.add(savename.substring(0, savename.lastIndexOf(".") + 1) + "mp4");
+    //
+    // logger.info(commend.toString());
     try {
 
       ProcessBuilder builder = new ProcessBuilder();
@@ -161,4 +248,5 @@ public class VideoCapture {
     }
 
   }
+
 }
