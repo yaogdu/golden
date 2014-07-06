@@ -12,7 +12,7 @@ public class VideoCapture {
   private static final Logger logger = Logger.getLogger(VideoCapture.class.getName());
 
   public static void main(String[] args) {
-    processTest("/Users/poppet/Desktop/cc.flv", "/Users/poppet/Desktop/cc2.mp4");
+    processTest("/Users/poppet/Desktop/55.mp4", "/Users/poppet/Desktop/66.mp4");
   }
 
   public static boolean processTest(String inputPath, String outputPath) {
@@ -26,7 +26,9 @@ public class VideoCapture {
     // -an, -vcodec, png, -vframes, 1, -ss, 00:00:01,
     // /data/res_fs/qv/66/47/qv_hnRjgR4766.ori.png
 
-    String c = String.format("/Users/poppet/storage/ffmpeg -y -i %s -pix_fmt yuv420p -r 30 -f mp4 %s ", inputPath, outputPath);
+    String c =
+        String.format("/Users/poppet/storage/ffmpeg -y -i %s -pix_fmt yuv420p -vcodec libx264 -s 320*640 -b:v 512k -r 30 -f mp4 %s ",
+            inputPath, outputPath);
     // String c =
     // String.format("/Users/poppet/storage/ffmpeg -y -i %s vcodec libx264 -b:v 512k -f mp4 %s ",
     // inputPath, outputPath);
@@ -178,10 +180,15 @@ public class VideoCapture {
 
     String savename = map.get("oriSavePath").toString();;
     List<String> commend = new ArrayList<String>();
-
+    // -y -i %s -pix_fmt yuv420p -vcodec libx264 -s 320*640 -b:v 512k -r 30 -f mp4 %s
+    // String c =
+    // String.format("%s -y -i %s -pix_fmt yuv420p -r 30 -f mp4 %s ",
+    // map.get("commandPath").toString() + "ffmpeg", map.get("oriSavePath")
+    // .toString(), savename.substring(0, savename.lastIndexOf(".") + 1) + "mp4");
     String c =
-        String.format("%s -y -i %s -pix_fmt yuv420p -r 30 -f mp4 %s ", map.get("commandPath").toString() + "ffmpeg", map.get("oriSavePath")
-            .toString(), savename.substring(0, savename.lastIndexOf(".") + 1) + "mp4");
+        String.format("%s -y -i %s -pix_fmt yuv420p -vcodec libx264 -s 320*640 -b:v 512k -r 30 -f mp4 %s ", map.get("commandPath")
+            .toString()
+            + "ffmpeg", map.get("oriSavePath").toString(), savename.substring(0, savename.lastIndexOf(".") + 1) + "mp4");
 
     List<String> cc = Arrays.asList(c.split(" "));
 
