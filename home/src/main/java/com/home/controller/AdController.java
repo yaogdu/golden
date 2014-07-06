@@ -224,16 +224,16 @@ public class AdController {
           final VideoCapture cap = new VideoCapture();
           cap.capture(map);
           final Map m = new HashMap<>(map);
-          if (!"mp4".equals(fileNames[1].toLowerCase())) {
+          // if (!"mp4".equals(fileNames[1].toLowerCase())) {
 
-            es.execute(new Runnable() {
-              @Override
-              public void run() {
-                cap.processMP4(m);
-              }
-            });
+          es.execute(new Runnable() {
+            @Override
+            public void run() {
+              cap.processMP4(m);
+            }
+          });
 
-          }
+          // }
 
           resource.setMd5(map.get("oriRetPath").toString().replaceAll(fileNames[1], "mp4"));
           resource.setThumbnailMd5(map.get("retPath").toString());
