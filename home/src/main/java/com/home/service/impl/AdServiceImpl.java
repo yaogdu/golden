@@ -38,12 +38,15 @@ public class AdServiceImpl implements AdService {
     if (itemId != null && itemId.contains(",")) {
       itemId = itemId.substring(0, itemId.length() - 1);
     }
-    List<UserHistory> uhs = userHistoryDao.getStatus(HistoryType.AD, itemId, uid);
+    if (!("").equals(itemId)) {
 
-    for (Advertisement ad : ads) {
-      for (UserHistory uh : uhs) {
-        if (ad.getId() == uh.getUhId()) {
-          ad.setStatus(uh.getStatus());
+      List<UserHistory> uhs = userHistoryDao.getStatus(HistoryType.AD, itemId, uid);
+
+      for (Advertisement ad : ads) {
+        for (UserHistory uh : uhs) {
+          if (ad.getId() == uh.getUhId()) {
+            ad.setStatus(uh.getStatus());
+          }
         }
       }
     }
