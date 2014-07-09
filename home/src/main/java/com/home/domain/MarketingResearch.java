@@ -1,17 +1,18 @@
 package com.home.domain;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
-
-import org.json.JSONObject;
 
 @Entity
 @Table(name = "t_marketing_research")
@@ -28,6 +29,9 @@ public class MarketingResearch extends BaseEntity implements Serializable {
 
   @Column(name = "mr_title", length = 64)
   private String title;
+
+  @OneToMany(mappedBy = "ownerId", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+  private List<Resource> resources;
 
   @Column(name = "mr_expire", length = 10)
   private int expire;
@@ -144,6 +148,10 @@ public class MarketingResearch extends BaseEntity implements Serializable {
     return q9;
   }
 
+  public List<Resource> getResources() {
+    return resources;
+  }
+
   public Sponsor getSponsor() {
     return sponsor;
   }
@@ -218,6 +226,10 @@ public class MarketingResearch extends BaseEntity implements Serializable {
 
   public void setQ9(String q9) {
     this.q9 = q9;
+  }
+
+  public void setResources(List<Resource> resources) {
+    this.resources = resources;
   }
 
   public void setSponsor(Sponsor sponsor) {

@@ -4,14 +4,16 @@ import java.util.List;
 
 import javax.persistence.Query;
 
+import org.apache.log4j.Logger;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.home.business.BaseEntityDao;
 import com.home.business.MrDao;
-import com.home.domain.AppPromotion;
 import com.home.domain.MarketingResearch;
 
 public class MrDaoImpl extends BaseEntityDao<MarketingResearch> implements MrDao {
+
+  private static final Logger logger = Logger.getLogger(MrDaoImpl.class);
 
   @Override
   @Transactional
@@ -22,17 +24,25 @@ public class MrDaoImpl extends BaseEntityDao<MarketingResearch> implements MrDao
 
   @Override
   public List<MarketingResearch> CustomizedMr(long ts, long uid) {
-    String sql =
-        "select mr.*, uh.uh_status status "
-            + " from t_marketing_research  mr left join t_resource r on (mr.mr_id=r.r_owner_id and r.r_owner_type=1 ) "
-            + " left join t_user_history uh on(mr.mr_id=uh.uh_item_id and uh.u_id=?1) " + " where mr.mr_id>?2 order by mr.mr_id desc";
+    // String sql =
+    // "select mr.*, uh.uh_status status "
+    // +
+    // " from t_marketing_research  mr left join t_resource r on (mr.mr_id=r.r_owner_id and r.r_owner_type=1 ) "
+    // + " left join t_user_history uh on(mr.mr_id=uh.uh_item_id and uh.u_id=?1) " +
+    // " where mr.mr_id>?2 order by mr.mr_id desc";
+
+    String sql = "select mr  from MarketingResearch mr, UserHistory uh where mr.id=uh.uhId and uh.uid=:uid and mr.id>:id ";
     // String sql=""select * from t_marketing_research where mr_id in (select uh_id from
     // t_user_history where uh_type=1 and u_id=?1 and uh_status!=5 and uh_id>?2 order by uh_id desc
     // ) order by mr_id desc"";
-    Query query = em.createNativeQuery(sql, MarketingResearch.class);
-    query.setParameter(1, uid);
-    query.setParameter(2, ts);
+    Query query = em.createQuery(sql, MarketingResearch.class);
+    // query.setParameter(1, uid);
+    // query.setParameter(2, ts);
+    query.setParameter("uid", uid);
+    query.setParameter("id", ts);
 
+    logger.info(String.format("select mr  from MarketingResearch mr, UserHistory uh where mr.id=uh.uhId and uh.uid= %d and mr.id> %d", uid,
+        ts));
     return (List<MarketingResearch>) query.getResultList();
   }
 

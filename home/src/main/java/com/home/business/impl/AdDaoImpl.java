@@ -1,6 +1,5 @@
 package com.home.business.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Query;
@@ -11,7 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.home.business.AdDao;
 import com.home.business.BaseEntityDao;
 import com.home.domain.Advertisement;
-import com.home.domain.UserHistory;
 
 public class AdDaoImpl extends BaseEntityDao<Advertisement> implements AdDao {
 
