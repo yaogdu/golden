@@ -11,6 +11,7 @@ latte.teacher.mr = {
 		moduleTopic : null
 	// ��ǰѡ��ר��
 	},
+	i:0,
 	topicData : [],
 	postData : {
 		resourceName : '',
@@ -130,11 +131,14 @@ latte.teacher.mr = {
 	commit : function() {// �ύ
 		
 		var qs=[];
-		qs.push(latte.teacher.mr.orgQ(1));
-		
-		qs.push(latte.teacher.mr.orgQ(2));
-		qs.push(latte.teacher.mr.orgQ(3));
-		console.log(qs);
+		var i=1;
+		$('input[type=text][name=question]').each(function (){
+			if($(this).val()!=""){
+				qs.push(latte.teacher.mr.orgQ(i));
+				console.log("i is : "+i);
+				i++;
+			}
+		});
 		var mr={
 			 title:$('#title').val(),
 			 description:$('.infoTextarea').val(),
@@ -151,12 +155,14 @@ latte.teacher.mr = {
 		latte.teacher.mr.fileUploader.start();// �ϴ�
 	},
 	orgQ: function (type){
+		++latte.teacher.mr.i;
+		
 		var q={};
 		q.name=latte.teacher.mr.orgAQ(type);
-		q.alias="问题 "+(type+1);
+		q.alias="问题 "+type;
 		q.type=0;
 		q.ownerType=1;
-		q.id=new Date().getTime();
+		q.id=new Date().getTime()+latte.teacher.mr.i;
 		return q;
 	},
 	
