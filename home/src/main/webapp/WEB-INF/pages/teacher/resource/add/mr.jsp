@@ -90,86 +90,13 @@
                                                             <input type="text" maxlength="45" id="q1" name="q1" value="" size="30" class="infoText">
                                                           </div>
                                                           
-                                                        </div> 
-                                                        <div id="mr_question2" class="formList">
-                                                         <label>问题2：</label>  
-                                                         <div class="info">
-                                                            <input type="text" maxlength="45" id="q2" name="q2" value="" size="30" class="infoText">
-                                                          </div>
-                                                          
-                                                        </div> 
-                                                        <div id="mr_question3" class="formList">
-                                                         <label>问题3：</label>  
-                                                         <div class="info">
-                                                            <input type="text" maxlength="45" id="q3" name="q3" value="" size="30" class="infoText">
-                                                          </div>
-                                                          
-                                                        </div> 
-                                                        
-                                                        <div id="mr_question4" class="formList">
-                                                         <label>问题4：</label>  
-                                                         <div class="info">
-                                                            <input type="text" maxlength="45" id="q4" name="q4" value="" size="30" class="infoText">
-                                                          </div>
-                                                          
-                                                        </div> 
-                                                        
-                                                        <div id="mr_question5" class="formList">
-                                                         <label>问题5：</label>  
-                                                         <div class="info">
-                                                            <input type="text" maxlength="45" id="q5" name="q5" value="" size="30" class="infoText">
-                                                          </div>
-                                                          
-                                                        </div> 
-                                                        
-                                                        
-                                                        <div id="mr_question6" class="formList">
-                                                         <label>问题6：</label>  
-                                                         <div class="info">
-                                                            <input type="text" maxlength="45" id="q6" name="q6" value="" size="30" class="infoText">
-                                                          </div>
-                                                          
-                                                        </div> 
-                                                        
-                                                        
-                                                        <div id="mr_question7" class="formList">
-                                                         <label>问题7：</label>  
-                                                         <div class="info">
-                                                            <input type="text" maxlength="45" id="q7" name="q7" value="" size="30" class="infoText">
-                                                          </div>
-                                                          
-                                                        </div> 
-                                                        
-                                                        <div id="mr_question8" class="formList">
-                                                         <label>问题8：</label>  
-                                                         <div class="info">
-                                                            <input type="text" maxlength="45" id="q8" name="q8" value="" size="30" class="infoText">
-                                                          </div>
-                                                          
-                                                        </div> 
-                                                        
-                                                        
-                                                        <div id="mr_question9" class="formList">
-                                                         <label>问题9：</label>  
-                                                         <div class="info">
-                                                            <input type="text" maxlength="45" id="q9" name="q9" value="" size="30" class="infoText">
-                                                          </div>
-                                                          
-                                                        </div> 
-                                                        
-                                                        <div id="mr_question10" class="formList">
-                                                         <label>问题10：</label>  
-                                                         <div class="info">
-                                                            <input type="text" maxlength="45" id="q10" name="q10" value="" size="30" class="infoText">
-                                                          </div>
-                                                          
-                                                        </div>  -->
+                                                         -->
                                                         
                                                         
                                                          
                                                          
                                                          
-                                                         <div id="mr_question1" class="formList">
+                                                        <!--  <div id="mr_question1" class="formList">
                                                          <label>问题1：</label>  
                                                           <div class="info">
                                                             <input type="text" maxlength="45" id="q1" name="question" value="" size="30" class="infoText">
@@ -266,7 +193,7 @@
                                                             <input type="text"  maxlength="45" id="a6_3" name="a6"  value="" style="width: 117px;" size="10" class="infoText">&nbsp;
                                                             <input type="text"  maxlength="45" id="a6_4" name="a6"  value="" style="width: 117px;" size="10" class="infoText">&nbsp;
                                                           </div>
-                                                        </div>
+                                                        </div> -->
                                                         
                                                          
 														 
@@ -278,7 +205,8 @@
 										 
 												</div>
 												<div class="conBtnWrap">
-													 <span id="btn_save_mr" class="BtnBlue24" ><a class="btnSave">提交</a></span>
+													 <span id="btn_save_mr" class="BtnBlue24" ><a class="btnSave">提交</a></span>&nbsp;&nbsp;
+                                                     <span id="btn_insert_question" class="BtnBlue24" ><a class="btnSave">添加问题</a></span>
 												</div>
 				                            </div>
 		                          		</div>

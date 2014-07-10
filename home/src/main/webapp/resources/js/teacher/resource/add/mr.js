@@ -11,6 +11,7 @@ latte.teacher.mr = {
 		moduleTopic : null
 	// ��ǰѡ��ר��
 	},
+	qdivNum:0,
 	i:0,
 	topicData : [],
 	postData : {
@@ -38,6 +39,16 @@ latte.teacher.mr = {
 		// $('#btn_select_theme').click(latte.teacher.mr.showThemeSelector);
 		// $('#btn_select_special').click(latte.teacher.mr.showSpecialSelector);
 		$('#btn_save_mr').click(latte.teacher.mr.commit);
+		$('#btn_insert_question').click(latte.teacher.mr.insertQ);
+		latte.teacher.mr.drawDiv();
+		
+		$('body').on('click','span[name=btnInsertOption]',function(){
+			var optionId=$(this).prev().attr('id');//a3_4
+			var qNum=$(this).attr('data-id');
+			var optionNum=optionId.substring(optionId.lastIndexOf('_')+1,optionId.length+1);
+//			console.log(optionNum);
+			$(this).prev().after(latte.teacher.mr.drawOption(qNum,(parseInt(optionNum)+1)));
+		});
 	},
 	/* init kings of values */
 	initSrc : function() {
@@ -57,6 +68,26 @@ latte.teacher.mr = {
 		
 		
 	},
+	drawDiv : function (){
+		for(var i=1;i<=10;i++){
+			var qdiv=latte.teacher.mr.drawQ(i);
+			latte.teacher.mr.qdivNum=i;
+			//$('#mr_expire').after(qdiv);
+			$('.formCon').append(qdiv);
+		}
+		
+	},
+	insertQ : function (){
+		//for(var i=1;i<=10;i++){
+			++latte.teacher.mr.qdivNum;
+			var qdiv=latte.teacher.mr.drawQ(latte.teacher.mr.qdivNum);
+			//latte.teacher.mr.qdivNum=i;
+			//$('#mr_expire').after(qdiv);
+			$('.formCon').append(qdiv);
+		//}
+		
+	},
+	
 	
 	/* init ends */
 	initTab : function() {// ��ʼ������tab��ǩ
@@ -64,7 +95,6 @@ latte.teacher.mr = {
 			$(this).siblings('li').removeClass('current');
 			$(this).addClass('current');
 		});
- 
 
 	},
 	initUploader : function() {// ��ʼ���ļ��ϴ��ؼ�
@@ -171,7 +201,9 @@ latte.teacher.mr = {
 		var question=$('#q'+type).val();
 		var i=1;
 		$('input[type=text][name=a'+type+']').each(function (){
-			answer+="{answerID:"+i+",answerText:"+$(this).val()+"},";
+			if($(this).val()!=null&&$(this).val()!=""){
+				answer+="{answerID:"+i+",answerText:"+$(this).val()+"},";
+			}
 			i++;
 		});
 		answer=answer.substring(0,answer.lastIndexOf(","));
@@ -182,6 +214,30 @@ latte.teacher.mr = {
 		//console.log({"question":question,"answer":answer});
 		//console.log("{question:"+question+",answer:"+answer+"}");
 		return "{question:"+question+",answer:"+answer+"}";
+	},
+	drawQ: function (qNum){
+		var qdiv="<div id=\"mr_question"+qNum+"\" class=\"formList\">";
+		qdiv+=" <label>问题"+qNum+"：</label>";
+		qdiv+="<div class=\"info\">";
+		qdiv+="<input type=\"text\" maxlength=\"45\" id=\"q"+qNum+"\" name=\"question\" value=\"\" size=\"30\" class=\"infoText\">";
+		qdiv+="</div></div>";
+		
+		qdiv+="<div id=\"mr_a"+qNum+"\" class=\"formList\">";
+		qdiv+="<label>选项：</label>";
+		qdiv+="<div class=\"info\">";
+		qdiv+="<input type=\"text\"  maxlength=\"45\" id=\"a"+qNum+"_1\" name=\"a"+qNum+"\"  value=\"\" style=\"width: 117px;\" size=\"10\" class=\"infoText\">&nbsp;";
+		qdiv+="<input type=\"text\"  maxlength=\"45\" id=\"a"+qNum+"_2\" name=\"a"+qNum+"\"  value=\"\" style=\"width: 117px;\" size=\"10\" class=\"infoText\">&nbsp;";
+		qdiv+="<input type=\"text\"  maxlength=\"45\" id=\"a"+qNum+"_3\" name=\"a"+qNum+"\"  value=\"\" style=\"width: 117px;\" size=\"10\" class=\"infoText\">&nbsp;";
+		qdiv+="<input type=\"text\"  maxlength=\"45\" id=\"a"+qNum+"_4\" name=\"a"+qNum+"\"  value=\"\" style=\"width: 117px;\" size=\"10\" class=\"infoText\">&nbsp;";
+		//qdiv+="<input type=\"button\"  data-id=\"\" maxlength=\"45\" name=\"a"+qNum+"\"  value=\"添加选项\" style=\"width: 117px;\" size=\"10\" class=\"BtnBlue24\">&nbsp;";
+		qdiv+=" <span data-id=\""+qNum+"\" name=\"btnInsertOption\"  class=\"BtnBlue24\" ><a class=\"btnSave\">添加选项</a></span>";
+		qdiv+="</div></div>";
+		return qdiv;
+	},
+	drawOption : function (qNum,optionNum){
+		var option="<input type=\"text\"  maxlength=\"45\" id=\"a"+qNum+"_"+optionNum+"\" name=\"a"+qNum+"\"  value=\"\" style=\"width: 117px;\" size=\"10\" class=\"infoText\">&nbsp;";
+		
+		return option;
 	},
 	loadModuleList : function(data) {
 		var $moodule = $('#zhuti_module');
