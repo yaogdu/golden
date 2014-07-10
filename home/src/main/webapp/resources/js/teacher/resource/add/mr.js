@@ -187,10 +187,15 @@ latte.teacher.mr = {
 	orgQ: function (type){
 		++latte.teacher.mr.i;
 		
+		var qType=$('input[type=radio][name=r'+type+']:checked').attr('value');
+		if(!qType){
+			qType=0;
+		}
+		
 		var q={};
 		q.name=latte.teacher.mr.orgAQ(type);
 		q.alias="问题 "+type;
-		q.type=0;
+		q.type=qType;
 		q.ownerType=1;
 		q.id=new Date().getTime()+latte.teacher.mr.i;
 		return q;
@@ -199,27 +204,38 @@ latte.teacher.mr = {
 	orgAQ : function (type){
 		var answer="[";
 		var question=$('#q'+type).val();
-		var i=1;
-		$('input[type=text][name=a'+type+']').each(function (){
-			if($(this).val()!=null&&$(this).val()!=""){
-				answer+="{answerID:"+i+",answerText:"+$(this).val()+"},";
+		var qType=$('input[type=radio][name=r'+type+']:checked').attr('value');
+		var result="";
+		if(qType!=2){
+			var i=1;
+			$('input[type=text][name=a'+type+']').each(function (){
+				if($(this).val()!=null&&$(this).val()!=""){
+					answer+="{answerID:"+i+",answerText:"+$(this).val()+"},";
+				}
+				i++;
+			});
+			answer=answer.substring(0,answer.lastIndexOf(","));
+			answer+="]";
+			if(question==""){
+				return "";
 			}
-			i++;
-		});
-		answer=answer.substring(0,answer.lastIndexOf(","));
-		answer+="]";
-		if(question==""){
-			return "";
+			result="{question:"+question+",answer:"+answer+"}";
+		}else{
+			result=question;
 		}
+		
 		//console.log({"question":question,"answer":answer});
 		//console.log("{question:"+question+",answer:"+answer+"}");
-		return "{question:"+question+",answer:"+answer+"}";
+		return result;
 	},
 	drawQ: function (qNum){
 		var qdiv="<div id=\"mr_question"+qNum+"\" class=\"formList\">";
 		qdiv+=" <label>问题"+qNum+"：</label>";
 		qdiv+="<div class=\"info\">";
 		qdiv+="<input type=\"text\" maxlength=\"45\" id=\"q"+qNum+"\" name=\"question\" value=\"\" size=\"30\" class=\"infoText\">";
+		qdiv+=" <span><input type=\"radio\" name=\"r"+qNum+"\"  value=\"0\" class=\"infoRadio\" checked=checked>选择题</span>";
+		qdiv+=" <span><input type=\"radio\" name=\"r"+qNum+"\"  value=\"1\" class=\"infoRadio\">多选题</span>";
+		qdiv+=" <span><input type=\"radio\" name=\"r"+qNum+"\"  value=\"2\" class=\"infoRadio\">问答题</span>";
 		qdiv+="</div></div>";
 		
 		qdiv+="<div id=\"mr_a"+qNum+"\" class=\"formList\">";

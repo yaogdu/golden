@@ -65,7 +65,7 @@ public class Question extends BaseEntity implements Serializable {
         return new JSONObject(name).toString();
       }
     } catch (Exception e) {
-      e.printStackTrace();
+
     }
     return name;
   }
