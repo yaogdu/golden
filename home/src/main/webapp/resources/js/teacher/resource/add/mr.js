@@ -156,6 +156,7 @@ latte.teacher.mr = {
 		q.alias="问题 "+(type+1);
 		q.type=0;
 		q.ownerType=1;
+		q.id=new Date().getTime();
 		return q;
 	},
 	

@@ -31,20 +31,20 @@ public class MrServiceImpl implements MrService {
   public MarketingResearch createOne(MarketingResearch mr) {
 
     List<Question> questions = mr.getQuestions();
-    if (questions != null && questions.size() > 0) {
-
-      for (Question q : questions) {
-        try {
-          Thread.sleep(1);
-          q.setId(System.currentTimeMillis());
-        } catch (InterruptedException e) {
-          e.printStackTrace();
-        }
-      }
-      questionDao.createQuestions(questions);
-    } else {
-      logger.info("questions.size() is zero...");
-    }
+    // if (questions != null && questions.size() > 0) {
+    //
+    // for (Question q : questions) {
+    // try {
+    // Thread.sleep(1);
+    // q.setId(System.currentTimeMillis());
+    // } catch (InterruptedException e) {
+    // e.printStackTrace();
+    // }
+    // }
+    // questionDao.createQuestions(questions);
+    // } else {
+    // logger.info("questions.size() is zero...");
+    // }
 
     mrDao.createOne(mr);
 
