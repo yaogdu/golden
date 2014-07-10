@@ -2,17 +2,21 @@ package com.home.service.impl;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.home.business.MrDao;
+import com.home.business.QuestionDao;
 import com.home.business.UserHistoryDao;
-import com.home.domain.Advertisement;
 import com.home.domain.MarketingResearch;
+import com.home.domain.Question;
 import com.home.domain.UserHistory;
 import com.home.global.dict.AppType.HistoryType;
 import com.home.service.MrService;
 
 public class MrServiceImpl implements MrService {
+
+  private static final Logger logger = Logger.getLogger(MrServiceImpl.class);
 
   @Autowired
   MrDao mrDao;
@@ -20,10 +24,47 @@ public class MrServiceImpl implements MrService {
   @Autowired
   UserHistoryDao userHistoryDao;
 
+  @Autowired
+  QuestionDao questionDao;
+
   @Override
   public MarketingResearch createOne(MarketingResearch mr) {
-    // TODO Auto-generated method stub
-    return mrDao.createOne(mr);
+
+    List<Question> questions = mr.getQuestions();
+    if (questions != null && questions.size() > 0) {
+
+      for (Question q : questions) {
+        try {
+          Thread.sleep(1);
+          q.setId(System.currentTimeMillis());
+        } catch (InterruptedException e) {
+          e.printStackTrace();
+        }
+      }
+      questionDao.createQuestions(questions);
+    } else {
+      logger.info("questions.size() is zero...");
+    }
+
+    mrDao.createOne(mr);
+
+    logger.info("create questions begins");
+    if (questions != null && questions.size() > 0) {
+
+      for (Question q : questions) {
+        try {
+          q.setOwnerId(mr.getId());
+        } catch (Exception e) {
+          e.printStackTrace();
+        }
+      }
+      questionDao.createQuestions(questions);
+    } else {
+      logger.info("questions.size() is zero...");
+    }
+
+    logger.info("create questions begins");
+    return mr;
   }
 
   @Override

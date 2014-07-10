@@ -129,24 +129,19 @@ latte.teacher.mr = {
 	},
 	commit : function() {// �ύ
 		
+		var qs=[];
+		qs.push(latte.teacher.mr.orgQ(1));
+		
+		qs.push(latte.teacher.mr.orgQ(2));
+		qs.push(latte.teacher.mr.orgQ(3));
+		console.log(qs);
 		var mr={
 			 title:$('#title').val(),
 			 description:$('.infoTextarea').val(),
 			 totalReward:$('#totalReward').val(),
 			 individualReward:$('#invidualReward').val(),
 			 expire:$('#expire').val(),
-			 q1:$('#q1').val(),
-			 q2:$('#q2').val(),
-			 q3:$('#q3').val(),
-			 q4:$('#q4').val(),
-			 q5:$('#q5').val(),
-			 q6:$('#q6').val(),
-			 q7:$('#q7').val(),
-			 q8:$('#q8').val(),
-			 q9:$('#q9').val(),
-			 q10:$('#q10').val()
-			
-			 
+			 questions : qs
 		};
 		var data = {
 			"mr" : JSON.stringify(mr)
@@ -155,6 +150,15 @@ latte.teacher.mr = {
 		latte.teacher.mr.fileUploader.settings.url = ctx + "/mr/add";// ƴ���ϴ�url��param
 		latte.teacher.mr.fileUploader.start();// �ϴ�
 	},
+	orgQ: function (type){
+		var q={};
+		q.name=latte.teacher.mr.orgAQ(type);
+		q.alias="问题 "+(type+1);
+		q.type=0;
+		q.ownerType=1;
+		return q;
+	},
+	
 	orgAQ : function (type){
 		var answer="[";
 		var question=$('#q'+type).val();

@@ -208,18 +208,18 @@ public class MrController {
 
         mrService.createOne(mr);
 
-        mrIdService.generateTable(id + "");
-        logger.info("create table mr_id_" + id);
+        // mrIdService.generateTable(id + "");
+        // logger.info("create table mr_id_" + id);
 
         List<User> users = userService.findTestData(10);
 
         for (User u : users) {
           MrID m = new MrID();
 
-          m.setMr(id);
-          m.setStatus(HistoryStatus.INITED);
-          m.setUid(u.getId());
-          mrIdService.createOne(m);
+          // m.setMr(id);
+          // m.setStatus(HistoryStatus.INITED);
+          // m.setUid(u.getId());
+          // mrIdService.createOne(m);
 
           // AdID a = new AdID();
           // a.setA1("");
@@ -368,16 +368,16 @@ public class MrController {
     // if (cUser.isAuthenticated()) {
     MrID m = mrIdService.findByUid(mrId.getMr(), mrId.getUid());
     if (m != null) {
-      m.setA1(mrId.getA1());
-      m.setA10(mrId.getA10());
-      m.setA2(mrId.getA2());
-      m.setA3(mrId.getA3());
-      m.setA4(mrId.getA4());
-      m.setA5(mrId.getA5());
-      m.setA6(mrId.getA6());
-      m.setA7(mrId.getA7());
-      m.setA8(mrId.getA8());
-      m.setA9(mrId.getA9());
+      // m.setA1(mrId.getA1());
+      // m.setA10(mrId.getA10());
+      // m.setA2(mrId.getA2());
+      // m.setA3(mrId.getA3());
+      // m.setA4(mrId.getA4());
+      // m.setA5(mrId.getA5());
+      // m.setA6(mrId.getA6());
+      // m.setA7(mrId.getA7());
+      // m.setA8(mrId.getA8());
+      // m.setA9(mrId.getA9());
       m.setMr(mrId.getMr());
       m.setStatus(HistoryStatus.REVIEWED);
       m.setUid(mrId.getUid());

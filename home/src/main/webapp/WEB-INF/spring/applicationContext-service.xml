@@ -31,7 +31,7 @@
   <bean id="adIdService" class="com.home.service.impl.AdIdServiceImpl" />
   <bean id="apIdService" class="com.home.service.impl.ApIdServiceImpl" />
   <bean id="mrIdService" class="com.home.service.impl.MrIdServiceImpl" />
-   <bean id="resourceService" class="com.home.service.impl.ResourceServiceImpl" />
+  <bean id="resourceService" class="com.home.service.impl.ResourceServiceImpl" />
 
   <!-- dao -->
   <bean id="userDao" class="com.home.business.impl.UserDaoImpl"></bean>
@@ -48,5 +48,7 @@
   <bean id="adIdDao" class="com.home.business.impl.AdIdDaoImpl"></bean>
   <bean id="mrIdDao" class="com.home.business.impl.MrIdDaoImpl"></bean>
    <bean id="resourceDao" class="com.home.business.impl.ResourceDaoImpl"></bean>
+   <bean id="questionDao" class="com.home.business.impl.QuestionDaoImpl"></bean>
+   <bean id="answerDao" class="com.home.business.impl.AnswerDaoImpl"></bean>
 
 </beans>
