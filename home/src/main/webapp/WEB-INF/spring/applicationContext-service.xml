@@ -32,6 +32,7 @@
   <bean id="apIdService" class="com.home.service.impl.ApIdServiceImpl" />
   <bean id="mrIdService" class="com.home.service.impl.MrIdServiceImpl" />
   <bean id="resourceService" class="com.home.service.impl.ResourceServiceImpl" />
+  <bean id="answerService" class="com.home.service.impl.AnswerServiceImpl"></bean>
 
   <!-- dao -->
   <bean id="userDao" class="com.home.business.impl.UserDaoImpl"></bean>

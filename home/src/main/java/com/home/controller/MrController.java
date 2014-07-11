@@ -30,6 +30,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.alibaba.fastjson.JSON;
+import com.home.domain.Answer;
 import com.home.domain.MarketingResearch;
 import com.home.domain.MrID;
 import com.home.domain.ObjectVo;
@@ -44,6 +45,7 @@ import com.home.global.dict.ReturnCode;
 import com.home.global.util.CompressPicture;
 import com.home.global.util.FileUtil;
 import com.home.global.util.VideoCapture;
+import com.home.service.AnswerService;
 import com.home.service.MrIdService;
 import com.home.service.MrService;
 import com.home.service.ResourceService;
@@ -73,6 +75,9 @@ public class MrController {
 
   @Autowired
   UserService userService;
+
+  @Autowired
+  AnswerService answerService;
 
   ExecutorService es = Executors.newFixedThreadPool(10);
 
@@ -360,42 +365,39 @@ public class MrController {
 
   @RequestMapping(value = "/viewResult", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
   @ResponseBody
-  public String viewResult(@RequestBody MrID mrId) throws JSONException {
-    logger.info("answer questions of " + mrId.getMr());
+  public String viewResult(@RequestBody List<Answer> answers) throws JSONException {
+    logger.info("viewResult of mr ");
 
     JSONObject result = new JSONObject();
     // Subject cUser = SecurityUtils.getSubject();
     // if (cUser.isAuthenticated()) {
-    MrID m = mrIdService.findByUid(mrId.getMr(), mrId.getUid());
-    if (m != null) {
-      // m.setA1(mrId.getA1());
-      // m.setA10(mrId.getA10());
-      // m.setA2(mrId.getA2());
-      // m.setA3(mrId.getA3());
-      // m.setA4(mrId.getA4());
-      // m.setA5(mrId.getA5());
-      // m.setA6(mrId.getA6());
-      // m.setA7(mrId.getA7());
-      // m.setA8(mrId.getA8());
-      // m.setA9(mrId.getA9());
-      m.setMr(mrId.getMr());
-      m.setStatus(HistoryStatus.REVIEWED);
-      m.setUid(mrId.getUid());
-      mrIdService.answerItem(mrId);
+    // MrID m = mrIdService.findByUid(mrId.getMr(), mrId.getUid());
+
+    if (answers != null && answers.size() > 0) {
+
+      Answer a = answers.get(0);
 
       UserHistory uh = new UserHistory();
 
       // to change userhistory status to history
-      uh.setUid(mrId.getUid());
+      uh.setUid(a.getUid());
       uh.setStatus(HistoryStatus.REVIEWED);
       uh.setType(HistoryType.MR);
-      uh.setUhId(mrId.getMr());
+      uh.setUhId(a.getOwnerId());
       userHistoryService.updateHistoryStatus(uh);
 
-      result.put("returncode", ReturnCode.code200);
-      result.put("success", true);
-      result.put("msg", "成功");
-      return result.toString();
+      if (answerService.answerMr(answers)) {
+        result.put("returncode", ReturnCode.code200);
+        result.put("success", true);
+        result.put("msg", "成功");
+        return result.toString();
+      } else {
+        result.put("returncode", ReturnCode.code500);
+        result.put("success", false);
+        result.put("msg", "发生错误");
+        return result.toString();
+      }
+
     } else {
       result.put("returncode", ReturnCode.code107);
       result.put("success", false);
