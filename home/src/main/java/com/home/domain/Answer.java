@@ -32,7 +32,7 @@ public class Answer extends BaseEntity implements Serializable {
 
   // question id
   @Column(name = "a_q_id", length = 20)
-  private long qId;
+  private long questionId;
 
   public long getId() {
     return id;
@@ -46,8 +46,8 @@ public class Answer extends BaseEntity implements Serializable {
     return ownerId;
   }
 
-  public long getqId() {
-    return qId;
+  public long getQuestionId() {
+    return questionId;
   }
 
   public long getUid() {
@@ -66,8 +66,8 @@ public class Answer extends BaseEntity implements Serializable {
     this.ownerId = ownerId;
   }
 
-  public void setqId(long qId) {
-    this.qId = qId;
+  public void setQuestionId(long questionId) {
+    this.questionId = questionId;
   }
 
   public void setUid(long uid) {
