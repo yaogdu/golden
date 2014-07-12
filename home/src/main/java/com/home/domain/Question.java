@@ -44,7 +44,7 @@ public class Question extends BaseEntity implements Serializable {
   @Column(name = "q_owner_id", length = 20)
   private long ownerId;
 
-  @OneToMany(mappedBy = "qId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+  @OneToMany(mappedBy = "questionId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
   private List<Answer> answers;
 
   public String getAlias() {
