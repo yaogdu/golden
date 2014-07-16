@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 @Entity
@@ -21,6 +22,14 @@ public class Question extends BaseEntity implements Serializable {
    * 
    */
   private static final long serialVersionUID = -3243269220276019730L;
+
+  public static void main(String[] args) throws JSONException {
+    String name =
+        "{question:贵公司现有职工人数是？,answer:[{answerID:1,answerText:30人以下},{answerID:2,answerText:31/60人},{answerID:3,answerText:61-100人},{answerID:4,answerText:100人以上}]}";
+    name = name.replaceAll("/", "\\/");
+    System.out.println(name);
+    System.out.println(new JSONObject(name).toString());
+  }
 
   @Id
   @Column(name = "q_id", length = 20)
@@ -62,6 +71,7 @@ public class Question extends BaseEntity implements Serializable {
   public String getName() {
     try {
       if (name != null && !("").equals(name)) {
+        name = name.replace("/", "-");
         return new JSONObject(name).toString();
       }
     } catch (Exception e) {
