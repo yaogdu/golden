@@ -34,14 +34,30 @@ latte.teacher.ap = {
 					max_file_size : '100mb', // �ļ��ϴ����ֵ
 					chunks : false,// ���ֿ��ϴ�
 					unique_names : true, // �ϴ����ļ����Ƿ�Ψһ,ֻ����δ���зֿ��ϴ�ʱ�ļ���Ψһ����Ч
-					url : ctx + "/ap/add",
-					//container: '',//document.getElementById('ap_file_name'),
+					url : ctx + "/ap/attach",
+//					container: $('#'),//document.getElementById('ap_file_name'),
 					flash_swf_url : static_ctx + '/js/lib/plupload/plupload.flash.swf',// plupload.flash.swf�ļ�����·��
 					multi_selection : true,
 					filters: [
 							     {title: "允许文件类型", extensions: fileTypeFilters.join(',')}
 					        ],
 					init : {
+						PostInit: function() {
+							document.getElementById('filelist').innerHTML = '';
+
+							document.getElementById('uploadfiles').onclick = function() {
+								uploader.start();
+								return false;
+							};
+						},
+
+						FilesAdded: function(up, files) {
+							plupload.each(files, function(file) {
+								document.getElementById('filelist').innerHTML += '<div id="' + file.id + '">' + file.name + ' (' + plupload.formatSize(file.size) + ') <b></b></div>';
+							});
+						},
+						
+						
 						FileUploaded : function(up, file, info) {
 							$('#btn_save_ap').css('disabled', '');// ���ñ��水ť
 							$('#file a').text('修改');
@@ -52,24 +68,23 @@ latte.teacher.ap = {
 								return;
 							} else {
 								util.dialog.messageDialog('上传成功');
-								location.href=ctx+"/ap_resource?ap="+JSON.stringify(data.ap.id);
 								return;
 							}
 						},
-						FilesAdded : function(up, file) { 
+//						FilesAdded : function(up, file) { 
 //							console.log(up);
 //							console.log(file);
-							$('#file a').text('修改');
-							
-							$('#ap_file .search').hide();
-							$('#ap_file .info').show();
-							$('#ap_file_name').append(file[0].name);
-							
-						},
-						BeforeUpload : function(up, file) {
-							latte.teacher.ap.fileUploader.disableBrowse(true);
-							$('#btn_save_ap').css('disabled', 'disabled');// ���ñ��水ť
-						},
+////							$('#file a').text('修改');
+////							
+////							$('#ap_file .search').hide();
+////							$('#ap_file .info').show();
+////							$('#ap_file_name').append(file[0].name);
+//							
+//						},
+//						BeforeUpload : function(up, file) {
+//							latte.teacher.ap.fileUploader.disableBrowse(true);
+//							$('#btn_save_ap').css('disabled', 'disabled');// ���ñ��水ť
+//						},
 						UploadProgress : function(up, file) {
 							$('#ap_file .barBg').css('width',
 									file.percent + '%');
@@ -85,20 +100,16 @@ latte.teacher.ap = {
 	},
 	commit : function() {// �ύ
 		
-		var ap={
-			 title:$('#title').val(),
-			 description:$('.infoTextarea').val(),
-			 totalReward:$('#totalReward').val(),
-			 individualReward:$('#invidualReward').val(),
-			 expire:$('#expire').val(),
-			 packageName:$("#packageName").val()
+		var resource={
+			"ownerId":$('#apid').val(),
+			"ownerType": 2,
 			
 		};
 		var data = {
-			"ap" : JSON.stringify(ap)
+			"resource" : JSON.stringify(resource)
 		};
 		latte.teacher.ap.fileUploader.settings.multipart_params = data;
-		latte.teacher.ap.fileUploader.settings.url = ctx + "/ap/add";// ƴ���ϴ�url��param
+		latte.teacher.ap.fileUploader.settings.url = ctx + "/ap/attach";// ƴ���ϴ�url��param
 		latte.teacher.ap.fileUploader.start();// �ϴ�
 	},
 	

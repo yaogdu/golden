@@ -14,4 +14,6 @@ public interface ApService {
   public List<AppPromotion> historyByUid(long uid, int pageSize, int pageNo);
 
   public List<AppPromotion> publicAp(long ts);
+
+  public void update(AppPromotion app);
 }

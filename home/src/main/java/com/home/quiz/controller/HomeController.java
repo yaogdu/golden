@@ -1,9 +1,12 @@
 package com.home.quiz.controller;
 
+import java.util.Map;
+
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -60,9 +63,15 @@ public class HomeController {
     return new ModelAndView("stat/statistics");
   }
 
-  @RequestMapping(value = "/test", method = RequestMethod.GET)
-  public ModelAndView test() {
-    return new ModelAndView("test");
+  @RequestMapping(value = "ap_resource", method = RequestMethod.GET)
+  public ModelAndView test(@RequestParam("ap") String ap) {
+    ModelAndView model = new ModelAndView("teacher/resource/add/ap_resource");
+
+    // model.addObject("map", map);
+    model.addObject("ap", ap);
+    // System.out.println(map);
+    // throw new CustomGenericException("500","hello exception");
+    return model;
   }
 
 }

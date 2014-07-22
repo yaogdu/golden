@@ -7,6 +7,7 @@
 	<title>发布调研</title>
 </head>
 <body>
+<input type="text" value="${ap }" id="apid"/>
 	<div class="container">
 		<div class="wrapper">
 			<!-- 头部 -->
@@ -35,66 +36,20 @@
 					                              	<div class="formCon">
 										                <div id="ap_file" class="formList">
 															<label><em>*</em>选择文件：</label>
-															<span id="file" class="btn-blue22 w80" ><a class="btnSave">上传文件</a></span>
-															<div class="info" style="display:none;" >
-																<div class="infoSwBox">
-																	<a href="javascript:void(0);" class="infoSw">
-																		<span class="swIco01"></span>
-																		<p id="ap_file_name"></p>
-																	</a>
-																	<div class="infoBarBox">
-																		<div class="infoBar">
-																			<div style="width:0%" class="barBg"></div>
-																		</div>
-																	</div>
-																</div>
-															</div>
+															<!-- <span id="file" class="btn-blue22 w80" ><a class="btnSave">上传文件</a></span> -->
+                                                            <div id="filelist">Your browser doesn't have Flash, Silverlight or HTML5 support.</div>
+<br />
+
+                                                            
+                                                             <div id="container">
+                                                              <a id="file" href="javascript:;">[Select files]</a> 
+                                                              <a id="uploadfiles" href="javascript:;">[Upload files]</a>
+                                                             </div>
+                                                             <br />
+                                                             <pre id="console"></pre>
                                                            
 														</div>
-										                <div id="ap_title" class="formList">
-															<label><em>*</em>标题：</label>
-															<div class="info">
-																<input type="text" maxlength="45" id="title" name="title" value="" size="30" class="infoText">
-															</div>
-										                </div>
-										                <div id="ap_description" class="formList">
-															<label>简介：</label>
-															<div class="info">
-																<textarea maxlength="100" class="infoTextarea"  placeholder="选填"></textarea>
-															</div>
-														</div>
-														
-														 
-														<div id="ap_total_reward" class="formList">
-                                                          <label>总奖金：</label>      
-															<div class="info">
-																<input type="text" maxlength="45" id="totalReward" name="totalReward" value="" size="30" class="infoText">
-															</div>
-														</div>
-                                                        <div id="ap_invidual_reward" class="formList">
-                                                         <label>单个奖金：</label>  
-                                                          <div class="info">
-                                                            <input type="text" maxlength="45" id="invidualReward" name="invidualReward" value="" size="30" class="infoText">
-                                                          </div>
-                                                        </div>
-                                                        
-                                                          <div id="ap_expire" class="formList">
-                                                           <label>有效时间(天)：</label>  
-                                                          <div class="info">
-                                                            <input type="text" maxlength="45" id="expire" name="expire" value="" size="30" class="infoText">
-                                                          </div>
-                                                        </div>
-                                                        
-                                                        
-                                                         <div id="ap_package_name" class="formList">
-                                                           <label>包名称：</label>  
-                                                          <div class="info">
-                                                            <input type="text" maxlength="45" id="packageName" name="packageName" value="" size="30" class="infoText">
-                                                          </div>
-                                                        </div>
-                                                        
-                                                         
-                                                        
+										                
                                                         
                                                          
 														 
@@ -179,7 +134,7 @@
 	<script type="text/javascript" src="${static_ctx}/static/js/lib/plupload/plupload.js?v=${version}"></script>
 	<script type="text/javascript" src="${static_ctx}/static/js/lib/plupload/plupload.html5.js?v=${version}"></script>
 	<script type="text/javascript" src="${static_ctx}/static/js/lib/plupload/plupload.flash.js?v=${version}"></script>
-	<script type="text/javascript" src="${static_ctx}/static/js/teacher/resource/add/ap.js"></script>
+	<script type="text/javascript" src="${static_ctx}/static/js/teacher/resource/add/test.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			latte.teacher.ap.init();

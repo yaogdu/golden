@@ -108,6 +108,9 @@ public class AppFormat {
 
     format.put("MP3", 2);
     format.put("WAV", 2);
+
+    format.put("APK", 3);
+    format.put("IP", 3);
     return format.get(suffix);
   }
 
@@ -186,6 +189,8 @@ public class AppFormat {
 
     formatMap.put("MP3", "AUDIO");
     formatMap.put("WAV", "AUDIO");
+    formatMap.put("APK", "PKG");
+    formatMap.put("IP", "PKG");
     /* formatMap.put("WMA", "AUDIO"); */
 
     // formatMap.put("TXT", "TXT");

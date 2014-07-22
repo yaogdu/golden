@@ -2,7 +2,6 @@ package com.home.business.impl;
 
 import javax.persistence.Query;
 
-import org.json.JSONObject;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.home.business.AdIdDao;

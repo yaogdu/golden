@@ -1,14 +1,18 @@
 package com.home.domain;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "t_app_promotion")
@@ -29,6 +33,12 @@ public class AppPromotion extends BaseEntity implements Serializable {
   @Column(name = "ap_title", length = 64)
   private String title;
 
+  @Column(name = "ap_dnd", length = 32)
+  private int dnd;
+
+  @OneToMany(mappedBy = "ownerId", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+  private List<Resource> resources;
+
   @Column(name = "ap_description")
   private String description;
 
@@ -38,6 +48,9 @@ public class AppPromotion extends BaseEntity implements Serializable {
   @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "s_id")
   private Sponsor sponsor;
+
+  @Transient
+  private int status;
 
   @Column(name = "ap_total_reward", length = 20)
   private String totalReward;
@@ -64,6 +77,10 @@ public class AppPromotion extends BaseEntity implements Serializable {
     return description;
   }
 
+  public int getDnd() {
+    return dnd;
+  }
+
   public int getExpire() {
     return expire;
   }
@@ -88,6 +105,10 @@ public class AppPromotion extends BaseEntity implements Serializable {
     return platform;
   }
 
+  public List<Resource> getResources() {
+    return resources;
+  }
+
   public String getResourceURL() {
     return resourceURL;
   }
@@ -100,6 +121,10 @@ public class AppPromotion extends BaseEntity implements Serializable {
     return sponsor;
   }
 
+  public int getStatus() {
+    return status;
+  }
+
   public String getTitle() {
     return title;
   }
@@ -110,6 +135,10 @@ public class AppPromotion extends BaseEntity implements Serializable {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public void setDnd(int dnd) {
+    this.dnd = dnd;
   }
 
   public void setExpire(int expire) {
@@ -136,6 +165,10 @@ public class AppPromotion extends BaseEntity implements Serializable {
     this.platform = platform;
   }
 
+  public void setResources(List<Resource> resources) {
+    this.resources = resources;
+  }
+
   public void setResourceURL(String resourceURL) {
     this.resourceURL = resourceURL;
   }
@@ -146,6 +179,10 @@ public class AppPromotion extends BaseEntity implements Serializable {
 
   public void setSponsor(Sponsor sponsor) {
     this.sponsor = sponsor;
+  }
+
+  public void setStatus(int status) {
+    this.status = status;
   }
 
   public void setTitle(String title) {

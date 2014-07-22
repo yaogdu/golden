@@ -21,13 +21,15 @@ public class ApDaoImpl extends BaseEntityDao<AppPromotion> implements ApDao {
 
   @Override
   public List<AppPromotion> CustomizedAp(long ts, long uid) {
-    Query query =
-        em.createNativeQuery(
-            "select * from t_app_promotion where ap_id in (select uh_id from t_user_history where uh_type=2 and u_id=?1 and uh_status!=5 and uh_id>?2 order by uh_id desc  ) order by ap_id desc ",
-            AppPromotion.class);
-    query.setParameter(1, uid);
-    query.setParameter(2, ts);
+    String sql = "select a  from AppPromotion a, UserHistory uh where a.id=uh.uhId and uh.uid=:uid and a.id>:id  ";
 
+    Query query = em.createQuery(sql, AppPromotion.class);
+    // query.setParameter(1, uid);
+    // query.setParameter(2, ts);
+    query.setParameter("uid", uid);
+    query.setParameter("id", ts);
+    // String
+    // sql="select * from t_app_promotion where ap_id in (select uh_id from t_user_history where uh_type=2 and u_id=?1 and uh_status!=5 and uh_id>?2 order by uh_id desc  ) order by ap_id desc ";
     // query.setParameter(1, pageSize * (pageNo - 1));
     // query.setParameter(2, pageSize);
 
@@ -37,7 +39,9 @@ public class ApDaoImpl extends BaseEntityDao<AppPromotion> implements ApDao {
   @Override
   public AppPromotion findById(long apId) {
     // TODO Auto-generated method stub
-    return super.getById(apId);
+    Query query = em.createNativeQuery("select * from t_app_promotion where ap_id=?1", AppPromotion.class);
+    query.setParameter(1, apId);
+    return (AppPromotion) query.getSingleResult();
   }
 
   @Override
@@ -67,6 +71,13 @@ public class ApDaoImpl extends BaseEntityDao<AppPromotion> implements ApDao {
     query.setParameter(1, ts);
 
     return (List<AppPromotion>) query.getResultList();
+  }
+
+  @Override
+  @Transactional
+  public void update(AppPromotion entity) {
+    // TODO Auto-generated method stub
+    super.update(entity);
   }
 
 }

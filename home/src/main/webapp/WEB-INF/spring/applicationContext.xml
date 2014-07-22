@@ -81,9 +81,9 @@
     </bean>
 
   <bean id="fileUtil" class="com.home.global.util.FileUtil">
-    <property name="storeDir" value="/Data/"/>
+        <property name="storeDir" value="/Data/"/>
     <property name="ffmpegPath" value="/home/ad/ffmpeg/"/>  
-      <!-- <property name="storeDir" value="/Users/poppet/Desktop/"/>
+  <!-- <property name="storeDir" value="/Users/poppet/Desktop/"/>
     <property name="ffmpegPath" value="/Users/poppet/storage/"/>-->
   </bean>
 

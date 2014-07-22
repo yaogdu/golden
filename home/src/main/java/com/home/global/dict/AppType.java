@@ -24,6 +24,11 @@ public class AppType {
     public static final int AP = 2;
   }
 
+  public static class platform {
+    public static final int ANDROID = 0;
+    public static final int IOS = 1;
+  }
+
   public static class ResourceType {
     public static final int PICTURE = 0;
     public static final int VIDEO = 1;
