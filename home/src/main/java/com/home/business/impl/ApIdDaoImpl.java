@@ -12,12 +12,17 @@ import com.home.domain.ApID;
 public class ApIdDaoImpl extends BaseEntityDao<ApID> implements ApIdDao {
 
   @Override
+  @Transactional
   public void answerItem(ApID apId) {
-    Query query = em.createNativeQuery("update ap_id_" + apId.getAp() + "  set ap_status=:status,ap_comments=:comments where u_id=:uid");
-    query.setParameter("comments", apId.getComments());
-    query.setParameter("status", apId.getStatus());
-    query.setParameter("uid", apId.getUid());
-    query.executeUpdate();
+    try {
+      Query query = em.createNativeQuery("update ap_id_" + apId.getAp() + "  set ap_status=:status,ap_comments=:comments where u_id=:uid");
+      query.setParameter("comments", apId.getComments());
+      query.setParameter("status", apId.getStatus());
+      query.setParameter("uid", apId.getUid());
+      query.executeUpdate();
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
 
   }
 
@@ -35,11 +40,17 @@ public class ApIdDaoImpl extends BaseEntityDao<ApID> implements ApIdDao {
 
   @Override
   public ApID findByUid(long tablename, long uid) {
-    Query query = em.createNativeQuery("select * from ap_id_" + tablename + " where u_id=:uid", ApID.class);
+    Query query = em.createNativeQuery("select * from ap_id_" + tablename + " where u_id=:uid");
     query.setParameter("uid", uid);
     ApID apid;
     try {
-      apid = (ApID) query.getSingleResult();
+      Object[] objs = (Object[]) query.getSingleResult();
+      int i = 0;
+      apid = new ApID();
+      apid.setAp(tablename);
+      apid.setComments(objs[++i] == null ? "" : objs[i].toString());
+      apid.setStatus(Integer.parseInt(objs[++i].toString()));
+      apid.setUid(uid);
     } catch (Exception e) {
       apid = null;
     }

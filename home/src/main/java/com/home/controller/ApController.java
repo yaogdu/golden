@@ -365,6 +365,58 @@ public class ApController {
 
   }
 
+  @RequestMapping(value = "/dndCount/{apId}", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE)
+  @ResponseBody
+  public String dndCount(@PathVariable("apId") long apId) {
+    JSONObject result = new JSONObject();
+
+    try {
+      AppPromotion ap = apService.findById(apId);
+      if (ap != null) {
+        result.put("success", true);
+        result.put("dnd", ap.getDnd());
+        result.put("returncode", ReturnCode.code200);
+        result.put("msg", "成功");
+      } else {
+        result.put("success", false);
+        result.put("msg", "该项不存在");
+        result.put("returncode", ReturnCode.code107);
+      }
+    } catch (Exception e) {
+      result.put("success", false);
+      result.put("msg", "发生错误");
+      result.put("returncode", ReturnCode.code500);
+    }
+    return result.toString();
+  }
+
+  @RequestMapping(value = "/dnd", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+  @ResponseBody
+  public String dndCountIncrease(@RequestBody AppPromotion ap) {
+    JSONObject result = new JSONObject();
+
+    try {
+      AppPromotion app = apService.findById(ap.getId());
+      if (app != null) {
+        app.setDnd(app.getDnd() + 1);
+        apService.update(app);
+        result.put("success", true);
+        result.put("dnd", app.getDnd());
+        result.put("returncode", ReturnCode.code200);
+        result.put("msg", "成功");
+      } else {
+        result.put("success", false);
+        result.put("msg", "该项不存在");
+        result.put("returncode", ReturnCode.code107);
+      }
+    } catch (Exception e) {
+      result.put("success", false);
+      result.put("msg", "发生错误");
+      result.put("returncode", ReturnCode.code500);
+    }
+    return result.toString();
+  }
+
   public String getFfmpegPath() {
     return ffmpegPath;
   }
@@ -429,9 +481,10 @@ public class ApController {
   public String viewResult(@RequestBody ApID apId) throws JSONException {
     logger.info("answer questions of " + apId.getAp());
 
-    Subject cUser = SecurityUtils.getSubject();
+    // Subject cUser = SecurityUtils.getSubject();
     JSONObject result = new JSONObject();
-    if (cUser.isAuthenticated()) {
+    try {
+      // if (cUser.isAuthenticated()) {
       ApID a = apIdService.findByUid(apId.getAp(), apId.getUid());
       if (a != null) {
         a.setComments(apId.getComments());
@@ -458,12 +511,19 @@ public class ApController {
         result.put("msg", "该项不存在");
         return result.toString();
       }
-    } else {
-      result.put("returncode", ReturnCode.code101);
+      // } else {
+      // result.put("returncode", ReturnCode.code101);
+      // result.put("success", false);
+      // result.put("msg", "请先登录");// send msg to client,and client should clear sessionId, in order
+      // to
+      // return result.toString();
+      // }
+    } catch (Exception e) {
+      result.put("returncode", ReturnCode.code500);
       result.put("success", false);
-      result.put("msg", "请先登录");// send msg to client,and client should clear sessionId, in order to
-      return result.toString();
+      result.put("msg", "发生错误");
     }
+    return result.toString();
 
   }
 }
