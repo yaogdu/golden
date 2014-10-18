@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -74,7 +72,7 @@ public class ApController {
   @Autowired
   UserHistoryService userHistoryService;
 
-  ExecutorService es = Executors.newFixedThreadPool(10);
+  // ExecutorService es = Executors.newFixedThreadPool(10);
 
   private String ffmpegPath;
 
